@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoey 柔伊｜髮型圖鑑</title>
+<meta name="description" content="質感燙染與風格提案——依髮長、捲度、色系挑選妳的下一個髮型，台中預約制髮型設計。">
+<link rel="canonical" href="https://zoeyhair.com/">
+<style>
+  :root { --paper:#faf8f6; --card:#fffdfb; --ink:#2b2326; --ink2:#5f5659; --ink3:#8f8487;
+    --accent:#8e4a5c; --deep:#6f3648; --wash:#f6edef; --line:#e2d7d9; --hairline:#d8c3c9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink);
+    font-family:"Songti TC","Noto Serif TC","PingFang TC",serif; line-height:1.8; }
+  .topnav { position:sticky; top:0; z-index:40; display:flex; justify-content:center;
+    gap:10px; padding:11px 16px; background:rgba(250,248,246,.93);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); white-space:nowrap; overflow-x:auto;
+    scrollbar-width:none; }
+  .topnav::-webkit-scrollbar { display:none; }
+  .topnav a { color:var(--ink2); text-decoration:none; font-size:13.5px; letter-spacing:.12em;
+    border:1px solid var(--hairline); background:var(--card); border-radius:999px;
+    padding:8px 16px; transition:background .25s, color .25s; flex:0 0 auto; }
+  .topnav a:hover { color:var(--deep); border-color:var(--deep); }
+  .topnav a.on { background:var(--deep); color:#fff; border-color:var(--deep); }
+  .topnav a:active { transform:scale(.96); }
+  .wrap { max-width:1060px; margin:0 auto; padding:0 22px 100px; }
+  .hero { display:grid; grid-template-columns:11fr 9fr; min-height:calc(96svh - 53px);
+    max-width:1440px; margin:0 auto; }
+  .hleft { display:flex; flex-direction:column; justify-content:center;
+    padding:60px clamp(24px,6vw,90px); }
+  .hero .eyebrow { font-family:"Avenir Next",sans-serif; font-size:12.5px; letter-spacing:.5em;
+    color:var(--accent); font-weight:600; animation:hup .9s .1s ease both; }
+  .hero h1 { font-size:clamp(46px,6.4vw,92px); font-weight:700; letter-spacing:.12em;
+    line-height:1.28; margin:26px 0 0; animation:hup .9s .25s ease both; }
+  .hen { font-family:"Didot","Times New Roman",serif; font-style:italic;
+    font-size:clamp(18px,2vw,26px); color:var(--accent); margin-top:16px;
+    letter-spacing:.04em; animation:hup .9s .4s ease both; }
+  .hero .sub { color:var(--ink2); font-size:15px; letter-spacing:.1em; max-width:430px;
+    margin-top:26px; animation:hup .9s .55s ease both; }
+  .hscroll { display:inline-block; margin-top:54px; font-family:"Avenir Next",sans-serif;
+    font-size:12px; letter-spacing:.4em; color:var(--ink3); text-decoration:none;
+    animation:hup .9s .85s ease both; }
+  .hscroll:hover { color:var(--deep); }
+  .hright { position:relative; overflow:hidden; }
+  .hslide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
+  .hslide.on { opacity:1; }
+  .hslide video, .hslide img { width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(1.02) saturate(.94); pointer-events:none;
+    -webkit-touch-callout:none; user-select:none; }
+  .hcap { position:absolute; right:28px; bottom:26px; z-index:2; text-decoration:none;
+    font-family:"PingFang TC",sans-serif; font-size:12.5px; letter-spacing:.12em; color:#fff;
+    background:rgba(43,35,38,.45); padding:7px 13px; backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px); }
+  .hcap:hover { background:rgba(43,35,38,.7); }
+  .hdots { position:absolute; left:50%; transform:translateX(-50%); bottom:16px; z-index:2;
+    display:flex; gap:8px; }
+  .hdots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.5);
+    transition:background .4s; }
+  .hdots span.on { background:#fff; }
+  .hright::after { content:""; position:absolute; inset:16px;
+    border:1px solid rgba(255,255,255,.55); pointer-events:none; }
+  @keyframes hup { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  .marq { overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:16px 0; background:var(--card); }
+  .mtrack { display:inline-flex; white-space:nowrap; animation:marq 44s linear infinite; }
+  .mtrack span { font-family:"Didot","Songti TC","Times New Roman",serif; font-size:14.5px;
+    letter-spacing:.34em; color:var(--ink3); text-transform:uppercase; }
+  .mtrack i { font-style:italic; text-transform:none; letter-spacing:.16em;
+    color:var(--accent); }
+  @keyframes marq { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  .rv { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .rv.in { opacity:1; transform:none; }
+  .hvert { display:none; }
+  .fline { display:none; }
+  .cta { display:flex; gap:12px; margin:34px 0 0; flex-wrap:wrap;
+    font-family:"PingFang TC",sans-serif; animation:hup .9s .7s ease both; }
+  .about .cta, footer .cta { justify-content:center; animation:none; }
+  .cta a { text-decoration:none; font-size:14px; padding:11px 30px; letter-spacing:.14em; font-weight:600; }
+  .cta .line { background:var(--deep); color:#fff; }
+  .cta .ig { border:1.5px solid var(--deep); color:var(--deep); }
+  .cta a:hover { opacity:.85; }
+  .filters { display:flex; gap:24px; flex-wrap:wrap; justify-content:center;
+    margin:58px 0 10px; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .filters button { font-family:"Songti TC",serif; font-size:15px; letter-spacing:.22em;
+    background:none; border:none; color:var(--ink3); cursor:pointer; padding:2px 0; position:relative; }
+  .filters button.on { color:var(--deep); font-weight:700; }
+  .filters button.on::after { content:""; position:absolute; left:0; right:0; bottom:-6px;
+    height:2px; background:var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(6,1fr); gap:22px; margin-top:44px; }
+  .item { grid-column:span 2; background:var(--card); border:1px solid var(--line); position:relative; }
+  .item.feature { grid-column:span 4; grid-row:span 2; }
+  .imgbox { position:relative; overflow:hidden; }
+  .item img, .item video { width:100%; aspect-ratio:4/5; object-fit:cover; display:block;
+    transition:transform .6s ease; filter:brightness(1.02) saturate(.92);
+    -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; pointer-events:none; }
+  .item.feature img, .item.feature video { aspect-ratio:4/4.7; }
+  .item:hover img { transform:scale(1.03); }
+  .item[data-id="013"] img { object-position:50% 8%; }
+  .trendtag { position:absolute; left:18px; bottom:16px; z-index:2;
+    background:rgba(255,253,251,.94); color:var(--deep);
+    font-family:"PingFang TC",sans-serif; font-size:11.5px; font-weight:600;
+    letter-spacing:.16em; padding:5px 10px 5px 12px; }
+  .imgbox::after { content:""; position:absolute; inset:10px; border:1px solid rgba(255,255,255,.5);
+    pointer-events:none; }
+  .no { position:absolute; top:18px; left:18px; z-index:2;
+    font-family:"Didot","Times New Roman",serif; font-style:italic; font-size:22px;
+    color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.35); letter-spacing:.06em; }
+  .info { padding:18px 20px 20px; text-align:center; }
+  .name { font-size:18px; font-weight:700; letter-spacing:.14em; }
+  .item.feature .name { font-size:22px; }
+  .tags { font-family:"PingFang TC",sans-serif; font-size:12px; color:var(--ink3);
+    letter-spacing:.2em; margin-top:6px; }
+  .book { display:inline-block; margin-top:12px; font-size:13.5px; letter-spacing:.2em;
+    color:var(--deep); text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:3px; }
+  .book:hover { border-bottom-color:var(--deep); }
+  .fav { position:absolute; top:12px; right:12px; z-index:3; width:42px; height:42px;
+    border:none; background:none; cursor:pointer; font-size:26px; line-height:1; padding:0;
+    color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.45); transition:transform .15s ease; }
+  .fav:active { transform:scale(1.25); }
+  .fav.on { color:var(--deep); } /* 品牌深酒紅；收藏浮條為墨黑與 LINE 鈕區隔 */
+  .favbar { position:fixed; left:50%; transform:translateX(-50%); bottom:20px; z-index:60;
+    display:none; align-items:center; gap:14px; padding:12px 14px 12px 22px;
+    background:var(--ink); color:#fff; border-radius:999px; box-shadow:0 10px 34px rgba(43,35,38,.35);
+    font-family:"PingFang TC",sans-serif; font-size:14px; letter-spacing:.06em; max-width:calc(100vw - 28px); }
+  .favbar.show { display:flex; }
+  .favbar .cnt { white-space:nowrap; }
+  .favbar .send { background:#fff; color:var(--ink); text-decoration:none; font-weight:600;
+    padding:9px 18px; border-radius:999px; white-space:nowrap; }
+  .favbar .send:hover { opacity:.9; }
+  .favbar .clear { background:none; border:none; color:rgba(255,255,255,.75); cursor:pointer;
+    font-size:16px; padding:4px 6px; line-height:1; }
+  .toast { position:fixed; left:50%; transform:translateX(-50%); bottom:90px; z-index:90;
+    background:var(--ink); color:#fff; padding:12px 22px; border-radius:10px;
+    font-family:"PingFang TC",sans-serif; font-size:14px; letter-spacing:.05em;
+    box-shadow:0 10px 34px rgba(43,35,38,.35); opacity:0; transition:opacity .3s ease;
+    pointer-events:none; max-width:calc(100vw - 40px); text-align:center; }
+  .toast.show { opacity:1; }
+  .sheetbg { position:fixed; inset:0; z-index:80; background:rgba(43,35,38,.5); display:none; }
+  .sheetbg.show { display:flex; align-items:flex-end; justify-content:center; }
+  .sheet { background:var(--card); width:100%; max-width:430px; padding:26px 24px 30px;
+    border-radius:18px 18px 0 0; font-family:"PingFang TC",sans-serif; position:relative; }
+  @media (min-width:761px) { .sheetbg.show { align-items:center; } .sheet { border-radius:16px; } }
+  .sheet h3 { font-family:"Songti TC",serif; font-size:17px; letter-spacing:.14em;
+    color:var(--ink); margin-bottom:14px; text-align:center; }
+  .sheet .msg { background:var(--wash); border:1px solid var(--line); border-radius:12px;
+    padding:14px 16px; font-size:15px; line-height:1.7; color:var(--ink);
+    white-space:pre-wrap; word-break:break-all; }
+  .sheet .go { display:block; width:100%; margin-top:16px; padding:14px 0; border:none;
+    background:var(--deep); color:#fff; font-size:16px; font-weight:700; letter-spacing:.1em;
+    border-radius:12px; cursor:pointer; position:relative; }
+  .sheet .go::after { content:""; position:absolute; inset:4px; border-radius:9px;
+    border:1px solid rgba(255,255,255,.4); pointer-events:none; }
+  .sheet .go:active { transform:scale(.98); }
+  .sheet .hint { margin-top:12px; font-size:12.5px; color:var(--ink3); text-align:center;
+    letter-spacing:.05em; line-height:1.7; }
+  .sheet .x { position:absolute; top:10px; right:14px; background:none; border:none;
+    font-size:20px; color:var(--ink3); cursor:pointer; padding:6px; }
+  .detail { max-width:520px; max-height:94svh; overflow:auto; padding:16px 16px 22px; }
+  .dmedia { position:relative; }
+  .dmedia img, .dmedia video { width:100%; max-height:62svh; object-fit:cover; display:block;
+    pointer-events:none; -webkit-touch-callout:none; user-select:none; }
+  .dmedia::after { content:""; position:absolute; inset:10px;
+    border:1px solid rgba(255,255,255,.5); pointer-events:none; }
+  .dwrap { position:relative; }
+  .dwrap .dfav { top:14px; right:14px; font-size:30px; width:50px; height:50px; z-index:4; }
+  .dplay { display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    z-index:3; width:64px; height:64px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(43,35,38,.55); color:#fff; font-size:22px; padding-left:5px;
+    backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+  .dplay.show { display:block; }
+  .detail h3 { margin-top:16px; margin-bottom:2px; }
+  .dtags { text-align:center; font-family:"PingFang TC",sans-serif; font-size:12px;
+    color:var(--ink3); letter-spacing:.18em; margin-bottom:4px; }
+  .detail .go { text-align:center; text-decoration:none; }
+  .sect { margin-top:96px; }
+  .shead { text-align:center; margin-bottom:40px; }
+  .shead .eyebrow, .about .eyebrow { font-family:"Avenir Next",sans-serif; font-size:12px;
+    letter-spacing:.5em; color:var(--accent); font-weight:600; }
+  .shead h2, .about h2 { font-size:clamp(26px,4vw,34px); letter-spacing:.2em; margin-top:12px; }
+  .shead .ssub { color:var(--ink2); font-size:14px; letter-spacing:.08em; margin-top:10px; }
+  .gcols { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .gcard { background:var(--card); border:1px solid var(--line); padding:26px 24px 22px; }
+  .gcard h3 { font-size:16.5px; letter-spacing:.16em; color:var(--deep); }
+  .gcard .gtest { font-family:"PingFang TC",sans-serif; font-size:12px; color:var(--ink3);
+    letter-spacing:.04em; margin:8px 0 10px; padding-bottom:10px; border-bottom:1px dashed var(--hairline); }
+  .gcard p { font-size:14px; color:var(--ink2); line-height:1.9; }
+  .chips { display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+  .chip { display:flex; align-items:center; gap:9px; cursor:pointer;
+    font-family:"PingFang TC",sans-serif; font-size:12.5px; letter-spacing:.03em;
+    color:var(--deep); background:var(--card); border:1px solid var(--hairline);
+    border-radius:999px; padding:5px 13px 5px 6px;
+    box-shadow:0 2px 10px rgba(43,35,38,.07); transition:background .2s, color .2s; }
+  .chip img { width:38px; height:38px; border-radius:50%; object-fit:cover; display:block;
+    pointer-events:none; border:1px solid rgba(255,255,255,.8); }
+  .chip i { font-style:normal; color:var(--accent); font-size:13px; }
+  .chip:hover { background:var(--deep); color:#fff; }
+  .chip:hover i { color:#fff; }
+  .chip:active { transform:scale(.96); }
+  .gnote { text-align:center; font-size:12.5px; color:var(--ink3); margin-top:26px;
+    letter-spacing:.06em; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:center; }
+  .step { background:var(--card); border:1px solid var(--line); padding:34px 22px 28px; }
+  .snum { font-family:"Didot","Times New Roman",serif; font-style:italic; font-size:34px;
+    color:var(--accent); display:block; }
+  .step h3 { font-size:16.5px; letter-spacing:.2em; margin:10px 0 8px; }
+  .step p { font-size:13.5px; color:var(--ink2); line-height:1.9; }
+  #faq { max-width:720px; margin-left:auto; margin-right:auto; }
+  #faq details { background:var(--card); border:1px solid var(--line); margin-bottom:10px;
+    padding:0 22px; }
+  #faq summary { cursor:pointer; list-style:none; font-size:15.5px; letter-spacing:.1em;
+    padding:18px 0; position:relative; font-weight:600; }
+  #faq summary::-webkit-details-marker { display:none; }
+  #faq summary::after { content:"＋"; position:absolute; right:2px; color:var(--accent); }
+  #faq details[open] summary::after { content:"－"; }
+  #faq details p { font-family:"PingFang TC",sans-serif; font-size:14px; color:var(--ink2);
+    line-height:2; padding:0 0 20px; }
+  .about { text-align:center; max-width:560px; margin-left:auto; margin-right:auto; }
+  .about .arole { color:var(--ink3); font-size:13.5px; letter-spacing:.3em; margin-top:10px; }
+  .about .atext { margin-top:22px; font-size:15px; color:var(--ink2); line-height:2.2;
+    text-align:justify; }
+  .about .cta { margin-top:30px; }
+  .item.flash .imgbox::after { border:2px solid var(--accent); inset:0; transition:none; }
+  .gmore { text-align:center; padding:26px 0 4px; font-family:"PingFang TC",sans-serif;
+    font-size:12px; letter-spacing:.2em; color:var(--ink3); }
+  .gpager { display:none; justify-content:center; align-items:center; flex-wrap:wrap; gap:8px;
+    padding:16px 0 4px; font-family:"PingFang TC",sans-serif; }
+  .gpager button { min-width:40px; height:40px; padding:0 13px; border:1px solid var(--line);
+    background:transparent; border-radius:10px; font-family:"PingFang TC",sans-serif;
+    font-size:13px; letter-spacing:.08em; color:var(--ink2); cursor:pointer;
+    transition:border-color .2s, color .2s; }
+  .gpager button:hover:not(:disabled):not(.cur) { border-color:var(--accent); color:var(--accent); }
+  .gpager button.cur { background:var(--accent); border-color:var(--accent); color:#fff;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.35); cursor:default; }
+  .gpager button:disabled { opacity:.35; cursor:default; }
+  footer { text-align:center; margin-top:84px; }
+  footer .fmotto { font-size:20px; letter-spacing:.3em; color:var(--deep); font-weight:700; }
+  footer .fsub { font-size:13px; letter-spacing:.24em; color:var(--ink3); margin-top:10px; }
+  footer .hl { width:110px; height:1px; background:var(--hairline); margin:30px auto 22px; }
+  footer .links { font-family:"PingFang TC",sans-serif; font-size:13.5px; letter-spacing:.08em; }
+  footer a { color:var(--deep); }
+  @media (max-width:760px) {
+    .grid { grid-template-columns:1fr 1fr; gap:12px; margin-top:30px; }
+    .item, .item.feature { grid-column:span 1; grid-row:auto; }
+    .imgbox::after { inset:6px; }
+    .no { top:10px; left:10px; font-size:15px; }
+    .fav { top:4px; right:4px; font-size:20px; width:36px; height:36px; }
+    .info { padding:12px 8px 14px; }
+    .name { font-size:14.5px; letter-spacing:.08em; }
+    .tags { font-size:10.5px; letter-spacing:.08em; margin-top:4px; }
+    .book { font-size:12px; letter-spacing:.12em; margin-top:8px; }
+    .trendtag { left:10px; bottom:10px; font-size:9.5px; letter-spacing:.1em; padding:4px 7px 4px 9px; }
+    .filters { gap:16px; }
+    .sect { margin-top:70px; }
+    .gcols, .steps { grid-template-columns:1fr; gap:12px; }
+    .about .atext { text-align:left; }
+    .topnav { gap:8px; padding:10px 12px; justify-content:flex-start; }
+    .topnav a { font-size:12.5px; letter-spacing:.08em; padding:7px 13px; }
+    /* 手機首屏：全螢幕雜誌封面（影片滿版、文字疊圖） */
+    .hero { display:block; position:relative; min-height:calc(96svh - 47px); overflow:hidden; }
+    .hright { position:absolute; inset:0; }
+    .hright::after { inset:12px; }
+    .hright::before { content:""; position:absolute; inset:0; z-index:1;
+      background:linear-gradient(180deg, rgba(43,35,38,.14) 0%, rgba(43,35,38,0) 34%,
+        rgba(43,35,38,.52) 74%, rgba(43,35,38,.78) 100%); }
+    .hleft { position:relative; z-index:2; min-height:calc(96svh - 47px);
+      justify-content:flex-end; padding:0 26px 64px; }
+    .hero .eyebrow { color:#f0d6de; }
+    .hero h1 { font-size:clamp(42px,12vw,56px); color:#fff;
+      text-shadow:0 2px 26px rgba(43,35,38,.5); }
+    .hen { color:#f0d6de; }
+    .hero .sub { color:rgba(255,255,255,.9); text-shadow:0 1px 12px rgba(43,35,38,.4); }
+    .cta .ig { border-color:rgba(255,255,255,.9); color:#fff; }
+    .hscroll { margin-top:34px; color:rgba(255,255,255,.72); }
+    .hvert { display:block; position:absolute; right:15px; top:47%; transform:translateY(-50%);
+      writing-mode:vertical-rl; z-index:2; color:rgba(255,255,255,.72);
+      font-family:"Avenir Next",sans-serif; font-size:10.5px; letter-spacing:.42em; }
+    .hcap { right:auto; left:14px; top:14px; bottom:auto; font-size:11px; padding:6px 10px; }
+    .hdots { bottom:14px; }
+    .mtrack span { font-size:12px; letter-spacing:.3em; }
+    /* 篩選列：單行橫滑 */
+    .filters { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+      gap:22px; padding:16px 6px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .filters::-webkit-scrollbar { display:none; }
+    .filters button { white-space:nowrap; flex:0 0 auto; }
+    /* 指南卡：橫滑翻卡 */
+    .gcols { display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+      gap:12px; padding-bottom:8px; scrollbar-width:none; }
+    .gcols::-webkit-scrollbar { display:none; }
+    .gcard { flex:0 0 80vw; scroll-snap-align:center; }
+    /* 浮動 LINE 鈕：品牌深酒紅＋細白內框（與作品卡同款視覺記號） */
+    .fline { display:flex; align-items:center; gap:7px; position:fixed; right:14px; bottom:84px;
+      z-index:55; padding:13px 19px; border-radius:999px; background:var(--deep); color:#fff;
+      text-decoration:none; position:fixed; box-shadow:0 10px 28px rgba(111,54,72,.4);
+      font-family:"Avenir Next",sans-serif; line-height:1; }
+    .fline::after { content:""; position:absolute; inset:4px; border:1px solid rgba(255,255,255,.45);
+      border-radius:999px; pointer-events:none; }
+    .fline b { font-size:12px; font-weight:700; letter-spacing:.14em; }
+    .fline span { font-family:"PingFang TC",sans-serif; font-size:12px; font-weight:600;
+      letter-spacing:.1em; }
+    .fline:active { transform:scale(.95); }
+  }
+</style>
+<script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<nav class="topnav">
+  <a href="#grid">作品圖鑑</a>
+  <a href="match/">AI 髮型配對</a>
+  <a href="guide/">髮型指南</a>
+  <a href="#guide">找適合妳的</a>
+  <a href="#steps">預約方式</a>
+  <a href="#faq">常見問題</a>
+</nav>
+<header class="hero">
+  <div class="hleft">
+    <div class="eyebrow">ZOEY HAIR GALLERY — TAICHUNG</div>
+    <h1>美，<br>從髮開始</h1>
+    <div class="hen">Beauty begins with hair.</div>
+    <p class="sub">從髮型開始的風格提案——挑一個妳想成為的樣子，我幫妳評估髮況，把它做到。</p>
+    <div class="cta">
+      <a class="line" href="https://lin.ee/KsgEJMw">LINE 預約諮詢</a>
+      <a class="ig" href="https://www.instagram.com/zoeyyyyyy227/">Instagram</a>
+    </div>
+    <a class="hscroll" href="#grid">DISCOVER ↓</a>
+  </div>
+  <div class="hright">
+    <div class="hslide on"><video src="published/026-奶茶棕大捲.mp4" preload="metadata" poster="published/026-奶茶棕大捲-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-026">2026夏・流行款　No.026 奶茶棕大捲</a></div>
+    <div class="hslide"><video data-hsrc="published/038-冷調亞麻長直.mp4" preload="none" poster="published/038-冷調亞麻長直-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-038">2026夏・流行款　No.038 冷調亞麻長直</a></div>
+    <div class="hslide"><video data-hsrc="published/034-鎖骨波浪燙.mp4" preload="none" poster="published/035-鎖骨波浪燙.jpeg" muted loop playsinline></video><a class="hcap" href="#card-034">2026夏・流行款　No.034 鎖骨波浪燙</a></div>
+    <div class="hdots"><span class="on"></span><span></span><span></span></div>
+  </div>
+  <div class="hvert">ZOEY ・ TAICHUNG ・ HAIR DESIGN</div>
+</header>
+<div class="marq"><div class="mtrack">
+  <span>ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;</span>
+  <span>ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;</span>
+</div></div>
+<div class="wrap">
+
+  <div class="filters" id="filters">
+    <button data-f="all" class="on">全部</button>
+    <button data-f="短髮">短髮 BOB</button>
+    <button data-f="長髮">中長髮</button>
+    <button data-f="懶人">懶人免整理</button>
+    <button data-f="免漂">免漂就美</button>
+    <button data-f="需漂">顯白進階款</button>
+    <button data-f="安全牌">上班安全牌</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <div class="item" id="card-026" data-tags="長髮 自然色 影片 免漂" data-id="026" data-name="奶茶棕大捲"
+      data-tagline="長髮 ・ 大捲 ・ 淺棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.026</span><button class="fav" type="button" aria-label="收藏這款">♡</button><span class="trendtag">2026夏・流行款</span><video data-src="published/026-奶茶棕大捲.mp4" poster="published/026-奶茶棕大捲-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">奶茶棕大捲</div><div class="tags">長髮 ・ 大捲 ・ 淺棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.026%E3%80%8C%E5%A5%B6%E8%8C%B6%E6%A3%95%E5%A4%A7%E6%8D%B2%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-038" data-tags="長髮 自然色 影片 免漂 懶人 安全牌" data-id="038" data-name="冷調亞麻長直"
+      data-tagline="長髮 ・ 直 ・ 亞麻 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.038</span><button class="fav" type="button" aria-label="收藏這款">♡</button><span class="trendtag">2026夏・流行款</span><video data-src="published/038-冷調亞麻長直.mp4" poster="published/038-冷調亞麻長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">冷調亞麻長直</div><div class="tags">長髮 ・ 直 ・ 亞麻 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.038%E3%80%8C%E5%86%B7%E8%AA%BF%E4%BA%9E%E9%BA%BB%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-034" data-tags="長髮 自然色 燙 影片 免漂 安全牌" data-id="034" data-name="鎖骨波浪燙"
+      data-tagline="中髮 ・ 大捲 ・ 深棕 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.034</span><button class="fav" type="button" aria-label="收藏這款">♡</button><span class="trendtag">2026夏・流行款</span><video data-src="published/034-鎖骨波浪燙.mp4" poster="published/035-鎖骨波浪燙.jpeg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">鎖骨波浪燙</div><div class="tags">中髮 ・ 大捲 ・ 深棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.034%E3%80%8C%E9%8E%96%E9%AA%A8%E6%B3%A2%E6%B5%AA%E7%87%99%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-060" data-tags="長髮 影片 免漂 懶人 安全牌" data-id="060" data-name="橄欖灰綠直髮"
+      data-tagline="中髮 ・ 直 ・ 亞麻灰綠 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.060</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/060-橄欖灰綠直髮.mp4" poster="published/060-橄欖灰綠直髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">橄欖灰綠直髮</div><div class="tags">中髮 ・ 直 ・ 亞麻灰綠 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.060%E3%80%8C%E6%A9%84%E6%AC%96%E7%81%B0%E7%B6%A0%E7%9B%B4%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-059" data-tags="短髮 特殊色 影片 需漂" data-id="059" data-name="蜜桃粉裙襬染鮑伯"
+      data-tagline="短髮 ・ 直 ・ 蜜桃粉 ・ 影片實拍" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.059</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/059-蜜桃粉裙襬染鮑伯.mp4" poster="published/059-蜜桃粉裙襬染鮑伯-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">蜜桃粉裙襬染鮑伯</div><div class="tags">短髮 ・ 直 ・ 蜜桃粉 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.059%E3%80%8C%E8%9C%9C%E6%A1%83%E7%B2%89%E8%A3%99%E8%A5%AC%E6%9F%93%E9%AE%91%E4%BC%AF%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-058" data-tags="長髮 燙 影片 免漂 安全牌" data-id="058" data-name="黑棕層次大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 黑棕 ・ 影片實拍" data-svc="燙" data-diff="中" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.058</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/058-黑棕層次大波浪.mp4" poster="published/058-黑棕層次大波浪-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑棕層次大波浪</div><div class="tags">長髮 ・ 大捲 ・ 黑棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.058%E3%80%8C%E9%BB%91%E6%A3%95%E5%B1%A4%E6%AC%A1%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-057" data-tags="長髮 免漂 懶人" data-id="057" data-name="酒紅色長直髮"
+      data-tagline="長髮 ・ 直 ・ 酒紅棕" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.057</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/057-酒紅長直髮.jpeg" alt="酒紅色長直髮 長髮 ・ 直 ・ 酒紅棕" loading="lazy"></div>
+      <div class="info"><div class="name">酒紅色長直髮</div><div class="tags">長髮 ・ 直 ・ 酒紅棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.057%E3%80%8C%E9%85%92%E7%B4%85%E8%89%B2%E9%95%B7%E7%9B%B4%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-056" data-tags="長髮 免漂" data-id="056" data-name="蜜糖橘棕大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 蜜糖橘棕" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.056</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/056-蜜糖橘棕大波浪.jpeg" alt="蜜糖橘棕大波浪 長髮 ・ 大捲 ・ 蜜糖橘棕" loading="lazy"></div>
+      <div class="info"><div class="name">蜜糖橘棕大波浪</div><div class="tags">長髮 ・ 大捲 ・ 蜜糖橘棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.056%E3%80%8C%E8%9C%9C%E7%B3%96%E6%A9%98%E6%A3%95%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-055" data-tags="長髮 影片 免漂 安全牌" data-id="055" data-name="黑棕層次波浪"
+      data-tagline="長髮 ・ 大捲 ・ 黑棕 ・ 影片實拍" data-svc="剪" data-diff="低" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.055</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/055-黑棕層次波浪.mp4" poster="published/055-黑棕層次波浪-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑棕層次波浪</div><div class="tags">長髮 ・ 大捲 ・ 黑棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.055%E3%80%8C%E9%BB%91%E6%A3%95%E5%B1%A4%E6%AC%A1%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-054" data-tags="短髮 燙 免漂" data-id="054" data-name="莓紅捲度鮑伯"
+      data-tagline="短髮 ・ 大捲 ・ 莓果紅棕" data-svc="染燙" data-diff="中" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.054</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/054-莓紅捲度鮑伯.jpeg" alt="莓紅捲度鮑伯 短髮 ・ 大捲 ・ 莓果紅棕" loading="lazy"></div>
+      <div class="info"><div class="name">莓紅捲度鮑伯</div><div class="tags">短髮 ・ 大捲 ・ 莓果紅棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.054%E3%80%8C%E8%8E%93%E7%B4%85%E6%8D%B2%E5%BA%A6%E9%AE%91%E4%BC%AF%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-053" data-tags="長髮 影片 免漂 懶人" data-id="053" data-name="奶茶淺棕長直髮"
+      data-tagline="長髮 ・ 直 ・ 奶茶淺棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.053</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/053-奶茶淺棕長直髮.mp4" poster="published/053-奶茶淺棕長直髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">奶茶淺棕長直髮</div><div class="tags">長髮 ・ 直 ・ 奶茶淺棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.053%E3%80%8C%E5%A5%B6%E8%8C%B6%E6%B7%BA%E6%A3%95%E9%95%B7%E7%9B%B4%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-052" data-tags="長髮 影片 免漂 懶人 安全牌" data-id="052" data-name="藍黑層次長直髮"
+      data-tagline="長髮 ・ 直 ・ 藍黑 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.052</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/052-藍黑層次長直髮.mp4" poster="published/052-藍黑層次長直髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">藍黑層次長直髮</div><div class="tags">長髮 ・ 直 ・ 藍黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.052%E3%80%8C%E8%97%8D%E9%BB%91%E5%B1%A4%E6%AC%A1%E9%95%B7%E7%9B%B4%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-051" data-tags="長髮 特殊色 影片 需漂" data-id="051" data-name="墨綠黑大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 墨綠黑 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.051</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/051-墨綠黑大波浪.mp4" poster="published/051-墨綠黑大波浪-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">墨綠黑大波浪</div><div class="tags">長髮 ・ 大捲 ・ 墨綠黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.051%E3%80%8C%E5%A2%A8%E7%B6%A0%E9%BB%91%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-050" data-tags="長髮 影片 免漂 安全牌" data-id="050" data-name="亞麻金齊平直髮"
+      data-tagline="中髮 ・ 直 ・ 亞麻奶茶金 ・ 影片實拍" data-svc="染" data-diff="高" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.050</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/050-亞麻金齊平直髮.mp4" poster="published/050-亞麻金齊平直髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">亞麻金齊平直髮</div><div class="tags">中髮 ・ 直 ・ 亞麻奶茶金 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.050%E3%80%8C%E4%BA%9E%E9%BA%BB%E9%87%91%E9%BD%8A%E5%B9%B3%E7%9B%B4%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-048" data-tags="長髮 特殊色 需漂" data-id="048" data-name="霧灰挑染長波浪"
+      data-tagline="長髮 ・ 大捲 ・ 霧灰挑染" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.048</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/048-霧灰挑染長波浪.jpeg" alt="霧灰挑染長波浪 長髮 ・ 大捲 ・ 霧灰挑染" loading="lazy"></div>
+      <div class="info"><div class="name">霧灰挑染長波浪</div><div class="tags">長髮 ・ 大捲 ・ 霧灰挑染</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.048%E3%80%8C%E9%9C%A7%E7%81%B0%E6%8C%91%E6%9F%93%E9%95%B7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-047" data-tags="短髮 影片 免漂 懶人" data-id="047" data-name="橄欖棕微彎短髮"
+      data-tagline="短髮 ・ 微彎 ・ 橄欖灰棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.047</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/047-橄欖棕微彎短髮.mp4" poster="published/047-橄欖棕微彎短髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">橄欖棕微彎短髮</div><div class="tags">短髮 ・ 微彎 ・ 橄欖灰棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.047%E3%80%8C%E6%A9%84%E6%AC%96%E6%A3%95%E5%BE%AE%E5%BD%8E%E7%9F%AD%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-046" data-tags="短髮 黑髮 燙 影片 免漂 安全牌" data-id="046" data-name="黑色蓬鬆燙短鮑伯"
+      data-tagline="短髮 ・ 小捲 ・ 黑 ・ 影片實拍" data-svc="燙" data-diff="中" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.046</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/046-黑色蓬鬆短鮑伯.mp4" poster="published/046-黑色蓬鬆短鮑伯-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑色蓬鬆燙短鮑伯</div><div class="tags">短髮 ・ 小捲 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.046%E3%80%8C%E9%BB%91%E8%89%B2%E8%93%AC%E9%AC%86%E7%87%99%E7%9F%AD%E9%AE%91%E4%BC%AF%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-045" data-tags="長髮 自然色 燙 影片 免漂 安全牌" data-id="045" data-name="深棕自然大捲"
+      data-tagline="長髮 ・ 大捲 ・ 深棕 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.045</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/045-深棕自然大捲.mp4" poster="published/045-深棕自然大捲-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">深棕自然大捲</div><div class="tags">長髮 ・ 大捲 ・ 深棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.045%E3%80%8C%E6%B7%B1%E6%A3%95%E8%87%AA%E7%84%B6%E5%A4%A7%E6%8D%B2%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-044" data-tags="長髮 自然色 燙 影片 免漂 安全牌" data-id="044" data-name="深棕層次尾段大捲"
+      data-tagline="長髮 ・ 大捲 ・ 深棕 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.044</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/044-深棕層次大捲.mp4" poster="published/044-深棕層次大捲-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">深棕層次尾段大捲</div><div class="tags">長髮 ・ 大捲 ・ 深棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.044%E3%80%8C%E6%B7%B1%E6%A3%95%E5%B1%A4%E6%AC%A1%E5%B0%BE%E6%AE%B5%E5%A4%A7%E6%8D%B2%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-043" data-tags="長髮 黑髮 燙 影片 免漂 安全牌" data-id="043" data-name="黑色大波浪長髮"
+      data-tagline="長髮 ・ 大捲 ・ 黑 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.043</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/043-黑色大波浪長髮.mp4" poster="published/043-黑色大波浪長髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑色大波浪長髮</div><div class="tags">長髮 ・ 大捲 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.043%E3%80%8C%E9%BB%91%E8%89%B2%E5%A4%A7%E6%B3%A2%E6%B5%AA%E9%95%B7%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-040" data-tags="長髮 黑髮 燙 影片 免漂 安全牌" data-id="040" data-name="黑髮尾大捲燙"
+      data-tagline="長髮 ・ 大捲 ・ 黑 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.040</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/040-黑髮尾大捲燙.mp4" poster="published/040-黑髮尾大捲燙-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑髮尾大捲燙</div><div class="tags">長髮 ・ 大捲 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.040%E3%80%8C%E9%BB%91%E9%AB%AE%E5%B0%BE%E5%A4%A7%E6%8D%B2%E7%87%99%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-039" data-tags="長髮 特殊色 影片 需漂 懶人" data-id="039" data-name="暗紫紅長直"
+      data-tagline="長髮 ・ 直 ・ 暗紫紅 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.039</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/039-暗紫紅長直.mp4" poster="published/039-暗紫紅長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">暗紫紅長直</div><div class="tags">長髮 ・ 直 ・ 暗紫紅 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.039%E3%80%8C%E6%9A%97%E7%B4%AB%E7%B4%85%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-037" data-tags="長髮 自然色 影片 免漂 懶人" data-id="037" data-name="奶茶棕長直"
+      data-tagline="長髮 ・ 直 ・ 淺棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.037</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/037-奶茶棕長直.mp4" poster="published/037-奶茶棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">奶茶棕長直</div><div class="tags">長髮 ・ 直 ・ 淺棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.037%E3%80%8C%E5%A5%B6%E8%8C%B6%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-036" data-tags="長髮 自然色 燙 影片 免漂" data-id="036" data-name="棕色大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 淺棕 ・ 影片實拍" data-svc="染燙" data-diff="中" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.036</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/036-棕色大波浪.mp4" poster="published/036-棕色大波浪-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">棕色大波浪</div><div class="tags">長髮 ・ 大捲 ・ 淺棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.036%E3%80%8C%E6%A3%95%E8%89%B2%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-033" data-tags="長髮 黑髮 燙 影片 免漂 懶人 安全牌" data-id="033" data-name="黑長直柔順"
+      data-tagline="長髮 ・ 直 ・ 黑 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.033</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/033-黑長直柔順.mp4" poster="published/033-黑長直柔順-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑長直柔順</div><div class="tags">長髮 ・ 直 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.033%E3%80%8C%E9%BB%91%E9%95%B7%E7%9B%B4%E6%9F%94%E9%A0%86%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-032" data-tags="長髮 特殊色 影片 需漂 懶人" data-id="032" data-name="紅棕長直"
+      data-tagline="長髮 ・ 直 ・ 紅棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.032</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/032-紅棕長直.mp4" poster="published/032-紅棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">紅棕長直</div><div class="tags">長髮 ・ 直 ・ 紅棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.032%E3%80%8C%E7%B4%85%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-031" data-tags="長髮 自然色 影片 免漂 懶人 安全牌" data-id="031" data-name="亞麻棕長直"
+      data-tagline="長髮 ・ 直 ・ 亞麻 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.031</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/031-亞麻棕長直.mp4" poster="published/031-亞麻棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">亞麻棕長直</div><div class="tags">長髮 ・ 直 ・ 亞麻 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.031%E3%80%8C%E4%BA%9E%E9%BA%BB%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-030" data-tags="短髮 黑髮 影片 免漂 懶人 安全牌" data-id="030" data-name="狼尾層次短髮"
+      data-tagline="短髮 ・ 微彎 ・ 黑 ・ 影片實拍" data-svc="剪" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.030</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/030-狼尾層次短髮.mp4" poster="published/030-狼尾層次短髮-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">狼尾層次短髮</div><div class="tags">短髮 ・ 微彎 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.030%E3%80%8C%E7%8B%BC%E5%B0%BE%E5%B1%A4%E6%AC%A1%E7%9F%AD%E9%AB%AE%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-029" data-tags="短髮 黑髮 燙 免漂 安全牌" data-id="029" data-name="黑色微捲鮑伯"
+      data-tagline="短髮 ・ 大捲 ・ 黑" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.029</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/029-黑色微捲鮑伯.jpeg" alt="黑色微捲鮑伯 短髮 ・ 大捲 ・ 黑" loading="lazy"></div>
+      <div class="info"><div class="name">黑色微捲鮑伯</div><div class="tags">短髮 ・ 大捲 ・ 黑</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.029%E3%80%8C%E9%BB%91%E8%89%B2%E5%BE%AE%E6%8D%B2%E9%AE%91%E4%BC%AF%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-028" data-tags="長髮 黑髮 燙 影片 免漂 安全牌" data-id="028" data-name="黑色大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 黑 ・ 影片實拍" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.028</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/028-黑色大波浪.mp4" poster="published/028-黑色大波浪-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑色大波浪</div><div class="tags">長髮 ・ 大捲 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.028%E3%80%8C%E9%BB%91%E8%89%B2%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-027" data-tags="長髮 黑髮 影片 免漂 懶人 安全牌" data-id="027" data-name="黑髮光澤特寫"
+      data-tagline="長髮 ・ 直 ・ 黑 ・ 影片實拍" data-svc="其他" data-diff="低" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.027</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/027-黑髮光澤特寫.mp4" poster="published/027-黑髮光澤特寫-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">黑髮光澤特寫</div><div class="tags">長髮 ・ 直 ・ 黑 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.027%E3%80%8C%E9%BB%91%E9%AB%AE%E5%85%89%E6%BE%A4%E7%89%B9%E5%AF%AB%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-025" data-tags="長髮 自然色 影片 免漂 懶人 安全牌" data-id="025" data-name="深棕長直"
+      data-tagline="長髮 ・ 直 ・ 深棕 ・ 影片實拍" data-svc="染" data-diff="低" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.025</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/025-深棕長直.mp4" poster="published/025-深棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">深棕長直</div><div class="tags">長髮 ・ 直 ・ 深棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.025%E3%80%8C%E6%B7%B1%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-024" data-tags="長髮 自然色 免漂 安全牌" data-id="024" data-name="巧克力棕大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 深棕" data-svc="染" data-diff="低" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.024</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/024-巧克力棕大波浪.jpeg" alt="巧克力棕大波浪 長髮 ・ 大捲 ・ 深棕" loading="lazy"></div>
+      <div class="info"><div class="name">巧克力棕大波浪</div><div class="tags">長髮 ・ 大捲 ・ 深棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.024%E3%80%8C%E5%B7%A7%E5%85%8B%E5%8A%9B%E6%A3%95%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-023" data-tags="長髮 自然色 影片 免漂 懶人 安全牌" data-id="023" data-name="亞麻冷棕長直"
+      data-tagline="長髮 ・ 直 ・ 亞麻 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.023</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/023-亞麻冷棕長直.mp4" poster="published/023-亞麻冷棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">亞麻冷棕長直</div><div class="tags">長髮 ・ 直 ・ 亞麻 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.023%E3%80%8C%E4%BA%9E%E9%BA%BB%E5%86%B7%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-022" data-tags="長髮 特殊色 影片 需漂 懶人" data-id="022" data-name="深莓紫棕長直"
+      data-tagline="長髮 ・ 直 ・ 深莓紫棕 ・ 影片實拍" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.022</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/022-深莓紫棕長直.mp4" poster="published/022-深莓紫棕長直-poster.jpg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">深莓紫棕長直</div><div class="tags">長髮 ・ 直 ・ 深莓紫棕 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.022%E3%80%8C%E6%B7%B1%E8%8E%93%E7%B4%AB%E6%A3%95%E9%95%B7%E7%9B%B4%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-021" data-tags="長髮 特殊色 影片 需漂" data-id="021" data-name="薰衣草灰紫長捲"
+      data-tagline="長髮 ・ 大捲 ・ 薰衣草灰紫 ・ 影片實拍" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.021</span><button class="fav" type="button" aria-label="收藏這款">♡</button><video data-src="published/021-薰衣草灰紫長捲.mp4" poster="published/020-薰衣草灰紫長捲.jpeg" muted loop playsinline preload="none"></video></div>
+      <div class="info"><div class="name">薰衣草灰紫長捲</div><div class="tags">長髮 ・ 大捲 ・ 薰衣草灰紫 ・ 影片實拍</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.021%E3%80%8C%E8%96%B0%E8%A1%A3%E8%8D%89%E7%81%B0%E7%B4%AB%E9%95%B7%E6%8D%B2%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-018" data-tags="長髮 特殊色 需漂" data-id="018" data-name="高飽和銅橘紅"
+      data-tagline="長髮 ・ 直 ・ 銅橘紅" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.018</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/018-銅橘紅直長髮.jpeg" alt="高飽和銅橘紅 長髮 ・ 直 ・ 銅橘紅" loading="lazy"></div>
+      <div class="info"><div class="name">高飽和銅橘紅</div><div class="tags">長髮 ・ 直 ・ 銅橘紅</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.018%E3%80%8C%E9%AB%98%E9%A3%BD%E5%92%8C%E9%8A%85%E6%A9%98%E7%B4%85%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-017" data-tags="長髮 特殊色 需漂 懶人" data-id="017" data-name="藍黑霧灰"
+      data-tagline="長髮 ・ 微彎 ・ 藍黑霧灰" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.017</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/017-藍黑霧灰長髮.jpeg" alt="藍黑霧灰 長髮 ・ 微彎 ・ 藍黑霧灰" loading="lazy"></div>
+      <div class="info"><div class="name">藍黑霧灰</div><div class="tags">長髮 ・ 微彎 ・ 藍黑霧灰</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.017%E3%80%8C%E8%97%8D%E9%BB%91%E9%9C%A7%E7%81%B0%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-014" data-tags="短髮 自然色 燙 免漂 懶人 安全牌" data-id="014" data-name="空氣感C彎短鮑伯"
+      data-tagline="短髮 ・ 微彎 ・ 深棕" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.014</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/014-C彎短鮑伯.jpeg" alt="空氣感C彎短鮑伯 短髮 ・ 微彎 ・ 深棕" loading="lazy"></div>
+      <div class="info"><div class="name">空氣感C彎短鮑伯</div><div class="tags">短髮 ・ 微彎 ・ 深棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.014%E3%80%8C%E7%A9%BA%E6%B0%A3%E6%84%9FC%E5%BD%8E%E7%9F%AD%E9%AE%91%E4%BC%AF%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-013" data-tags="長髮 自然色 燙 免漂 安全牌" data-id="013" data-name="深棕挑染大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 深棕挑染" data-svc="染燙" data-diff="中" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.013</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/013-深棕挑染大波浪.jpeg" alt="深棕挑染大波浪 長髮 ・ 大捲 ・ 深棕挑染" loading="lazy"></div>
+      <div class="info"><div class="name">深棕挑染大波浪</div><div class="tags">長髮 ・ 大捲 ・ 深棕挑染</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.013%E3%80%8C%E6%B7%B1%E6%A3%95%E6%8C%91%E6%9F%93%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-010" data-tags="長髮 自然色 免漂 懶人 安全牌" data-id="010" data-name="深棕低層次內彎"
+      data-tagline="長髮 ・ 微彎 ・ 深棕" data-svc="染" data-diff="低" data-bleach="不需漂" data-revisit="約 8~12 週">
+      <div class="imgbox"><span class="no">No.010</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/010-深棕內彎長髮.jpeg" alt="深棕低層次內彎 長髮 ・ 微彎 ・ 深棕" loading="lazy"></div>
+      <div class="info"><div class="name">深棕低層次內彎</div><div class="tags">長髮 ・ 微彎 ・ 深棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.010%E3%80%8C%E6%B7%B1%E6%A3%95%E4%BD%8E%E5%B1%A4%E6%AC%A1%E5%85%A7%E5%BD%8E%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-008" data-tags="長髮 自然色 燙 免漂 安全牌" data-id="008" data-name="深棕大波浪"
+      data-tagline="長髮 ・ 大捲 ・ 深棕" data-svc="燙" data-diff="低" data-bleach="不需漂" data-revisit="約 4~6 個月">
+      <div class="imgbox"><span class="no">No.008</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/008-深棕大波浪長髮.jpeg" alt="深棕大波浪 長髮 ・ 大捲 ・ 深棕" loading="lazy"></div>
+      <div class="info"><div class="name">深棕大波浪</div><div class="tags">長髮 ・ 大捲 ・ 深棕</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.008%E3%80%8C%E6%B7%B1%E6%A3%95%E5%A4%A7%E6%B3%A2%E6%B5%AA%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-006" data-tags="短髮 特殊色 需漂 懶人" data-id="006" data-name="黑藍底紫挑染bob"
+      data-tagline="短髮 ・ 直 ・ 黑藍紫" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.006</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/006-黑藍紫挑染bob.jpeg" alt="黑藍底紫挑染bob 短髮 ・ 直 ・ 黑藍紫" loading="lazy"></div>
+      <div class="info"><div class="name">黑藍底紫挑染bob</div><div class="tags">短髮 ・ 直 ・ 黑藍紫</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.006%E3%80%8C%E9%BB%91%E8%97%8D%E5%BA%95%E7%B4%AB%E6%8C%91%E6%9F%93bob%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-004" data-tags="短髮 特殊色 需漂" data-id="004" data-name="高明度銀灰外翹bob"
+      data-tagline="短髮 ・ 直 ・ 銀灰" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.004</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/004-銀灰外翹bob.jpeg" alt="高明度銀灰外翹bob 短髮 ・ 直 ・ 銀灰" loading="lazy"></div>
+      <div class="info"><div class="name">高明度銀灰外翹bob</div><div class="tags">短髮 ・ 直 ・ 銀灰</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.004%E3%80%8C%E9%AB%98%E6%98%8E%E5%BA%A6%E9%8A%80%E7%81%B0%E5%A4%96%E7%BF%B9bob%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-003" data-tags="短髮 特殊色 需漂" data-id="003" data-name="霧感灰紫bob"
+      data-tagline="短髮 ・ 直 ・ 灰紫" data-svc="染" data-diff="高" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.003</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/003-霧感灰紫bob.jpeg" alt="霧感灰紫bob 短髮 ・ 直 ・ 灰紫" loading="lazy"></div>
+      <div class="info"><div class="name">霧感灰紫bob</div><div class="tags">短髮 ・ 直 ・ 灰紫</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.003%E3%80%8C%E9%9C%A7%E6%84%9F%E7%81%B0%E7%B4%ABbob%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+    <div class="item" id="card-002" data-tags="短髮 特殊色 需漂 懶人" data-id="002" data-name="藍黑紫調直髮bob"
+      data-tagline="短髮 ・ 直 ・ 藍黑紫" data-svc="染" data-diff="中" data-bleach="需要漂・次數到店評估" data-revisit="約 4~6 週補色護色">
+      <div class="imgbox"><span class="no">No.002</span><button class="fav" type="button" aria-label="收藏這款">♡</button><img src="published/002-藍黑紫直bob.jpeg" alt="藍黑紫調直髮bob 短髮 ・ 直 ・ 藍黑紫" loading="lazy"></div>
+      <div class="info"><div class="name">藍黑紫調直髮bob</div><div class="tags">短髮 ・ 直 ・ 藍黑紫</div><a class="book" href="https://line.me/R/oaMessage/%40vok2785m/?%E5%93%88%E5%9B%89%20Zoey%EF%BD%9E%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%20No.002%E3%80%8C%E8%97%8D%E9%BB%91%E7%B4%AB%E8%AA%BF%E7%9B%B4%E9%AB%AEbob%E3%80%8D%E9%80%99%E6%AC%BE%20%E2%9C%82%EF%B8%8F">詢問這款</a></div>
+    </div>
+  </div>
+  <div class="gmore" id="gmore"><span id="gcount"></span></div>
+  <div class="gpager" id="gpager"></div>
+
+  <section class="sect" id="guide">
+    <div class="shead">
+      <div class="eyebrow">PERSONAL GUIDE</div>
+      <h2>找到適合妳的方向</h2>
+      <p class="ssub">個人色彩 × 骨架比例的線上初步自測——到店我會再免費幫妳完整鑑定</p>
+    </div>
+    <div class="gcols">
+      <div class="gcard">
+        <h3>個人色彩・冷皮</h3>
+        <p class="gtest">手腕血管偏藍紫、戴銀飾比金飾顯白</p>
+        <p>適合冷調霧感：冷棕灰、亞麻、藍黑、灰紫系，越冷越透亮。</p>
+        <div class="chips"><button class="chip" type="button" data-t="038"><img src="published/038-冷調亞麻長直-poster.jpg" alt="No.038 冷調亞麻長直" loading="lazy"><span>No.038　冷調亞麻長直</span><i>→</i></button><button class="chip" type="button" data-t="023"><img src="published/023-亞麻冷棕長直-poster.jpg" alt="No.023 亞麻冷棕長直" loading="lazy"><span>No.023　亞麻冷棕長直</span><i>→</i></button><button class="chip" type="button" data-t="017"><img src="published/017-藍黑霧灰長髮.jpeg" alt="No.017 藍黑霧灰" loading="lazy"><span>No.017　藍黑霧灰</span><i>→</i></button><button class="chip" type="button" data-t="003"><img src="published/003-霧感灰紫bob.jpeg" alt="No.003 霧感灰紫bob" loading="lazy"><span>No.003　霧感灰紫bob</span><i>→</i></button></div>
+      </div>
+      <div class="gcard">
+        <h3>個人色彩・暖皮</h3>
+        <p class="gtest">手腕血管偏綠、戴金飾比銀飾顯白</p>
+        <p>適合暖調光澤：奶茶棕、楓糖紅棕、銅橘、巧克力棕，越暖越有氣色。</p>
+        <div class="chips"><button class="chip" type="button" data-t="026"><img src="published/026-奶茶棕大捲-poster.jpg" alt="No.026 奶茶棕大捲" loading="lazy"><span>No.026　奶茶棕大捲</span><i>→</i></button><button class="chip" type="button" data-t="037"><img src="published/037-奶茶棕長直-poster.jpg" alt="No.037 奶茶棕長直" loading="lazy"><span>No.037　奶茶棕長直</span><i>→</i></button><button class="chip" type="button" data-t="032"><img src="published/032-紅棕長直-poster.jpg" alt="No.032 紅棕長直" loading="lazy"><span>No.032　紅棕長直</span><i>→</i></button><button class="chip" type="button" data-t="024"><img src="published/024-巧克力棕大波浪.jpeg" alt="No.024 巧克力棕大波浪" loading="lazy"><span>No.024　巧克力棕大波浪</span><i>→</i></button></div>
+      </div>
+      <div class="gcard">
+        <h3>個人色彩・中性皮</h3>
+        <p class="gtest">金銀飾都不違和、血管藍綠都有</p>
+        <p>冷暖都吃，選深色質感系最不出錯，重點放在光澤與髮質。</p>
+        <div class="chips"><button class="chip" type="button" data-t="040"><img src="published/040-黑髮尾大捲燙-poster.jpg" alt="No.040 黑髮尾大捲燙" loading="lazy"><span>No.040　黑髮尾大捲燙</span><i>→</i></button><button class="chip" type="button" data-t="025"><img src="published/025-深棕長直-poster.jpg" alt="No.025 深棕長直" loading="lazy"><span>No.025　深棕長直</span><i>→</i></button><button class="chip" type="button" data-t="013"><img src="published/013-深棕挑染大波浪.jpeg" alt="No.013 深棕挑染大波浪" loading="lazy"><span>No.013　深棕挑染大波浪</span><i>→</i></button></div>
+      </div>
+      <div class="gcard">
+        <h3>骨架・直線感</h3>
+        <p class="gtest">肩線利落、五官立體、身形偏薄</p>
+        <p>吃得住俐落線條：長直髮、低層次剪裁最能放大妳的高級感。</p>
+        <div class="chips"><button class="chip" type="button" data-t="033"><img src="published/033-黑長直柔順-poster.jpg" alt="No.033 黑長直柔順" loading="lazy"><span>No.033　黑長直柔順</span><i>→</i></button><button class="chip" type="button" data-t="038"><img src="published/038-冷調亞麻長直-poster.jpg" alt="No.038 冷調亞麻長直" loading="lazy"><span>No.038　冷調亞麻長直</span><i>→</i></button><button class="chip" type="button" data-t="025"><img src="published/025-深棕長直-poster.jpg" alt="No.025 深棕長直" loading="lazy"><span>No.025　深棕長直</span><i>→</i></button></div>
+      </div>
+      <div class="gcard">
+        <h3>骨架・曲線感</h3>
+        <p class="gtest">輪廓柔和、身形有弧度</p>
+        <p>大波浪與捲度是妳的主場，柔軟髮流呼應曲線最加分。</p>
+        <div class="chips"><button class="chip" type="button" data-t="026"><img src="published/026-奶茶棕大捲-poster.jpg" alt="No.026 奶茶棕大捲" loading="lazy"><span>No.026　奶茶棕大捲</span><i>→</i></button><button class="chip" type="button" data-t="036"><img src="published/036-棕色大波浪-poster.jpg" alt="No.036 棕色大波浪" loading="lazy"><span>No.036　棕色大波浪</span><i>→</i></button><button class="chip" type="button" data-t="028"><img src="published/028-黑色大波浪-poster.jpg" alt="No.028 黑色大波浪" loading="lazy"><span>No.028　黑色大波浪</span><i>→</i></button></div>
+      </div>
+      <div class="gcard">
+        <h3>比例・嬌小 / 頸短</h3>
+        <p class="gtest">想拉長頸部線條、頭身比例更輕盈</p>
+        <p>鎖骨髮與短鮑伯讓重心上移，視覺立刻長高三公分。</p>
+        <div class="chips"><button class="chip" type="button" data-t="034"><img src="published/035-鎖骨波浪燙.jpeg" alt="No.034 鎖骨波浪燙" loading="lazy"><span>No.034　鎖骨波浪燙</span><i>→</i></button><button class="chip" type="button" data-t="014"><img src="published/014-C彎短鮑伯.jpeg" alt="No.014 空氣感C彎短鮑伯" loading="lazy"><span>No.014　空氣感C彎短鮑伯</span><i>→</i></button><button class="chip" type="button" data-t="029"><img src="published/029-黑色微捲鮑伯.jpeg" alt="No.029 黑色微捲鮑伯" loading="lazy"><span>No.029　黑色微捲鮑伯</span><i>→</i></button></div>
+      </div>
+    </div>
+    <p class="gnote">以上為線上初步參考，每個人的膚調、髮質與生活習慣不同——到店諮詢時我會免費幫妳做完整的個人色彩與骨架評估。</p>
+  </section>
+
+  <section class="sect" id="steps">
+    <div class="shead">
+      <div class="eyebrow">HOW TO BOOK</div>
+      <h2>預約只要三步</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="snum">1</span><h3>逛圖鑑・收藏</h3><p>點 ♡ 收藏喜歡的款式，猶豫的全收也沒關係。</p></div>
+      <div class="step"><span class="snum">2</span><h3>LINE 傳編號</h3><p>點「詢問這款」或傳送候選清單，我馬上知道妳要什麼。</p></div>
+      <div class="step"><span class="snum">3</span><h3>到店評估</h3><p>免費評估髮況與報價，確認做法後才開始，不會做了才加價。</p></div>
+    </div>
+  </section>
+
+  <section class="sect" id="faq">
+    <div class="shead">
+      <div class="eyebrow">FAQ</div>
+      <h2>常見問題</h2>
+    </div>
+    <details><summary>價格怎麼算？會不會做到一半加價？</summary><p>價格依髮長、髮況與是否需要漂而定。LINE 傳作品編號後我會先給預估區間，到店確認髮況後報最終價格，確認妳同意才開始操作。</p></details>
+    <details><summary>做一次要多久？</summary><p>剪髮約 1 小時；染或燙約 2.5~4 小時；漂染特殊色約 4~6 小時。預約時我會先告訴妳預估時間，方便安排。</p></details>
+    <details><summary>我不知道自己適合什麼，可以直接找妳嗎？</summary><p>當然可以！這正是我最擅長的部分——到店我會免費幫妳做個人色彩與骨架評估，配合妳的髮質、生活習慣和整理時間，一起找出最適合妳的方向。</p></details>
+    <details><summary>染燙完怎麼維持比較久？</summary><p>我會依妳做的項目給居家護理建議（水溫、洗護產品、熱工具使用）。</p></details>
+    <details><summary>可以刷卡嗎？怎麼付款？</summary><p>現金、轉帳、刷卡都可以，付款方式到店選妳方便的就好。</p></details>
+  </section>
+
+  <section class="sect about" id="about">
+    <div class="eyebrow">ABOUT</div>
+    <h2>Zoey 柔伊</h2>
+    <p class="arole">台中・預約制髮型設計師</p>
+    <p class="atext">我相信「改變，是為了更好」。每一次染燙之前，我會先了解妳的髮況、生活習慣和整理時間，再決定怎麼把妳想要的樣子，用最適合妳的方式做到。妳不需要懂髮型的語言——把想像交給我就好。</p>
+    <div class="cta">
+      <a class="line" href="https://lin.ee/KsgEJMw">LINE 預約諮詢</a>
+      <a class="ig" href="https://www.instagram.com/zoeyyyyyy227/">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fmotto">改變，是為了更好</div>
+    <div class="fsub">我 陪 妳 ・ 變 成 想 要 的 樣 子</div>
+    <div class="hl"></div>
+    <div class="links">台中・預約制｜<a href="https://lin.ee/KsgEJMw">LINE 預約</a>｜<a href="https://www.instagram.com/zoeyyyyyy227/">@zoeyyyyyy227</a>｜<a href="guide/">髮型指南</a></div>
+  </footer>
+</div>
+<a class="fline" href="https://lin.ee/KsgEJMw" aria-label="LINE 快速預約"><b>LINE</b><span>預約</span></a>
+<div class="favbar" id="favbar">
+  <span class="cnt">♥ 已收藏 <b id="favcnt">0</b> 款</span>
+  <a class="send" id="favsend" href="#">LINE 傳送候選清單</a>
+  <button class="clear" id="favclear" type="button" aria-label="清空收藏">✕</button>
+</div>
+<div class="toast" id="toast"></div>
+<div class="sheetbg" id="detailbg">
+  <div class="sheet detail" role="dialog" aria-modal="true">
+    <button class="x" id="detailx" type="button" aria-label="關閉">✕</button>
+    <div class="dwrap"><div class="dmedia" id="dmedia"></div>
+    <button class="fav dfav" id="dfav" type="button" aria-label="收藏這款">♡</button></div>
+    <h3 id="dtitle"></h3>
+    <div class="dtags" id="dtagline"></div>
+    <a class="go" id="dask" href="#">用 LINE 詢問這款</a>
+  </div>
+</div>
+<div class="sheetbg" id="sheetbg">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <button class="x" id="sheetx" type="button" aria-label="關閉">✕</button>
+    <h3>傳送這則訊息給 Zoey</h3>
+    <div class="msg" id="sheetmsg"></div>
+    <button class="go" id="sheetgo" type="button">複製訊息並開啟 LINE</button>
+    <div class="hint">開啟 LINE 後，在訊息欄<b>長按 → 貼上 → 送出</b>就完成囉</div>
+  </div>
+</div>
+<script>
+  // 行為事件（GoatCounter 未啟用時自動略過）
+  function track(p) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: p, event: true });
+    }
+  }
+  const btns = document.querySelectorAll('.filters button');
+  const items = document.querySelectorAll('.item');
+  // 手機分批載入：先顯示一批，滑到底自動載下一批（作品變多也不會滑到累）
+  const BATCH = window.matchMedia('(max-width:760px)').matches ? 12 : 9999;
+  // 滿 30 款就分頁：每頁最多 30 款，不足一頁不出現頁碼列
+  const PER_PAGE = 30;
+  let vLimit = BATCH;
+  let curF = 'all';
+  let curPage = 1;
+  const gcount = document.getElementById('gcount');
+  const gpager = document.getElementById('gpager');
+  function applyFilter(f) {
+    if (f !== curF) { curF = f; vLimit = BATCH; curPage = 1; }
+    btns.forEach(x => x.classList.toggle('on', x.dataset.f === f));
+    const list = [];
+    items.forEach(it => {
+      if (f === 'all' || it.dataset.tags.split(' ').includes(f)) list.push(it);
+      it.style.display = 'none';
+    });
+    const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+    if (curPage > pages) curPage = pages;
+    const pageList = list.slice((curPage - 1) * PER_PAGE, curPage * PER_PAGE);
+    pageList.slice(0, vLimit).forEach(it => { it.style.display = ''; });
+    const shown = Math.min(vLimit, pageList.length);
+    gcount.textContent = pages > 1
+      ? '第 ' + curPage + ' / ' + pages + ' 頁 · 已顯示 ' + shown + ' 款 / 共 ' + list.length + ' 款'
+      : '已顯示 ' + shown + ' 款 / 共 ' + list.length + ' 款';
+    renderPager(pages);
+    return list.length;
+  }
+  function renderPager(pages) {
+    gpager.innerHTML = '';
+    gpager.style.display = pages > 1 ? 'flex' : 'none';
+    if (pages < 2) return;
+    function addBtn(label, page, dis, cur) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = label;
+      if (cur) b.className = 'cur';
+      b.disabled = !!dis || !!cur;
+      if (!cur) b.addEventListener('click', () => gotoPage(page));
+      gpager.appendChild(b);
+    }
+    addBtn('‹ 上一頁', curPage - 1, curPage === 1, false);
+    for (let p = 1; p <= pages; p++) addBtn(String(p), p, false, p === curPage);
+    addBtn('下一頁 ›', curPage + 1, curPage === pages, false);
+  }
+  function gotoPage(p) {
+    curPage = p;
+    vLimit = BATCH;
+    applyFilter(curF);
+    track('page-' + p);
+    document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  btns.forEach(b => b.addEventListener('click', () => { applyFilter(b.dataset.f); track('filter-' + b.dataset.f); }));
+  applyFilter('all');
+  const gmore = document.getElementById('gmore');
+  const moreIO = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) { vLimit += BATCH; applyFilter(curF); }
+  }), { rootMargin: '340px' });
+  moreIO.observe(gmore);
+  // 指南章節的編號 chip → 跳到對應作品並閃一下
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    const el = document.getElementById('card-' + c.dataset.t);
+    if (!el) return;
+    // 先切到目標作品所在的那一頁再捲動
+    curF = 'all';
+    curPage = Math.floor(Array.prototype.indexOf.call(items, el) / PER_PAGE) + 1;
+    vLimit = 9999;
+    applyFilter('all');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 2200);
+  }));
+  // 點卡片 → 放大檢視（大圖/影片 + LINE 詢問）
+  const detailbg = document.getElementById('detailbg');
+  const dmedia = document.getElementById('dmedia');
+  const LINE_OA_ID = '%40vok2785m';
+  document.addEventListener('click', e => {
+    const box = e.target.closest('.imgbox');
+    if (!box || e.target.closest('.fav')) return;
+    const it = box.closest('.item');
+    const v = it.querySelector('video');
+    if (v) {
+      // iOS 同時解碼的影片數有限：先暫停頁面上其他影片，把解碼器讓給放大檢視
+      document.querySelectorAll('video').forEach(x => x.pause());
+      const src = v.src || v.dataset.src;
+      dmedia.innerHTML = '<video src="' + src + '" ' + (v.poster ? 'poster="' + v.poster + '" ' : '') +
+        'muted loop autoplay playsinline webkit-playsinline preload="auto"></video>' +
+        '<button class="dplay" type="button" aria-label="播放">▶</button>';
+      const dv = dmedia.querySelector('video');
+      const dp = dmedia.querySelector('.dplay');
+      dv.muted = true; // iOS 對 innerHTML 插入的 muted 屬性有時不認，需明確設定才肯自動播
+      dv.setAttribute('muted', '');
+      const tryPlay = () => dv.play().then(() => dp.classList.remove('show'), () => dp.classList.add('show'));
+      tryPlay();
+      dp.addEventListener('click', tryPlay);
+      dv.addEventListener('playing', () => dp.classList.remove('show'));
+    } else {
+      const img = it.querySelector('img');
+      dmedia.innerHTML = '<img src="' + img.src + '" alt="' + it.dataset.name + '">';
+    }
+    document.getElementById('dtitle').textContent = 'No.' + it.dataset.id + '　' + it.dataset.name;
+    document.getElementById('dtagline').textContent = it.dataset.tagline;
+    document.getElementById('dask').href = 'https://line.me/R/oaMessage/' + LINE_OA_ID + '/?' +
+      encodeURIComponent('哈囉 Zoey～我想詢問 No.' + it.dataset.id + '「' + it.dataset.name + '」這款 ✂️');
+    curDetail = { id: it.dataset.id, name: it.dataset.name };
+    renderFavs();
+    detailbg.classList.add('show');
+    track('view-' + it.dataset.id);
+  });
+  document.getElementById('dfav').addEventListener('click', () => {
+    if (!curDetail) return;
+    const i = favs.findIndex(f => f.id === curDetail.id);
+    if (i >= 0) favs.splice(i, 1);
+    else { favs.push({ id: curDetail.id, name: curDetail.name }); track('fav-' + curDetail.id); }
+    renderFavs();
+  });
+  function closeDetail() {
+    detailbg.classList.remove('show');
+    dmedia.innerHTML = '';
+    // 恢復畫面內卡片影片的播放（開檢視時被暫停）
+    document.querySelectorAll('.item video[src], .hslide.on video[src]').forEach(x => {
+      const r = x.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight) x.play().catch(function () {});
+    });
+  }
+  document.getElementById('detailx').addEventListener('click', closeDetail);
+  detailbg.addEventListener('click', e => { if (e.target === detailbg) closeDetail(); });
+  document.getElementById('dask').addEventListener('click', () => detailbg.classList.remove('show'));
+  // 影片進入畫面才載入播放、離開就暫停（省流量、不卡頁面）
+  const vids = document.querySelectorAll('video[data-src]');
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) {
+      if (!v.src) v.src = v.dataset.src;
+      v.play().catch(()=>{});
+    } else { v.pause(); }
+  }), { rootMargin: '120px' });
+  vids.forEach(v => io.observe(v));
+  // 收藏候選清單：愛心多選 → 一鍵 LINE 傳送含編號的清單
+  const LINE_OA = '%40vok2785m';
+  let favs = [];
+  try { favs = JSON.parse(localStorage.getItem('zoey-favs') || '[]'); } catch (e) {}
+  const favbar = document.getElementById('favbar');
+  const favcnt = document.getElementById('favcnt');
+  const favsend = document.getElementById('favsend');
+  function favMsg() {
+    const lines = favs.map(f => 'No.' + f.id + ' ' + f.name);
+    return '哈囉 Zoey～我在髮型圖鑑收藏了：\n' + lines.join('\n') + '\n想詢問適不適合我 ✂️';
+  }
+  let curDetail = null; // 放大檢視中的作品 {id, name}
+  function renderFavs() {
+    const ids = favs.map(f => f.id);
+    document.querySelectorAll('.item').forEach(it => {
+      const btn = it.querySelector('.fav');
+      const on = ids.includes(it.dataset.id);
+      btn.classList.toggle('on', on);
+      btn.textContent = on ? '♥' : '♡';
+    });
+    const dfav = document.getElementById('dfav');
+    if (dfav && curDetail) {
+      const on = ids.includes(curDetail.id);
+      dfav.classList.toggle('on', on);
+      dfav.textContent = on ? '♥' : '♡';
+    }
+    favcnt.textContent = favs.length;
+    favsend.href = 'https://line.me/R/oaMessage/' + LINE_OA + '/?' + encodeURIComponent(favMsg());
+    favbar.classList.toggle('show', favs.length > 0);
+    try { localStorage.setItem('zoey-favs', JSON.stringify(favs)); } catch (e) {}
+  }
+  document.querySelectorAll('.item .fav').forEach(btn => btn.addEventListener('click', () => {
+    const it = btn.closest('.item');
+    const i = favs.findIndex(f => f.id === it.dataset.id);
+    if (i >= 0) favs.splice(i, 1);
+    else { favs.push({ id: it.dataset.id, name: it.dataset.name }); track('fav-' + it.dataset.id); }
+    renderFavs();
+  }));
+  document.getElementById('favclear').addEventListener('click', () => { favs = []; renderFavs(); });
+  renderFavs();
+  // oaMessage 預填只在 LINE App 內瀏覽器有效（官方文件限制）；
+  // 一般瀏覽器改走「顯示訊息 → 複製 → 開 LINE 貼上」保證客人傳得出編號
+  const IN_LINE = navigator.userAgent.indexOf(' Line/') >= 0;
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+  const sheetbg = document.getElementById('sheetbg');
+  const sheetmsg = document.getElementById('sheetmsg');
+  const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  let pendingHref = '';
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="https://line.me/R/oaMessage"]');
+    if (!a) return;
+    const aItem = a.closest('.item');
+    if (a.id === 'favsend') track('sendlist-' + favs.length);
+    else if (aItem) track('ask-' + aItem.dataset.id);
+    else if (a.id === 'dask' && curDetail) track('ask-' + curDetail.id);
+    if (IN_LINE) return; // LINE 內瀏覽器：深層連結會直接預填，放行
+    e.preventDefault();
+    pendingHref = a.href;
+    sheetmsg.textContent = decodeURIComponent(a.href.split('/?')[1] || '');
+    sheetbg.classList.add('show');
+  });
+  document.getElementById('sheetgo').addEventListener('click', () => {
+    const msg = sheetmsg.textContent;
+    // 手機：複製後走 oaMessage 深層連結，LINE App 多會自動把訊息填進輸入欄
+    // 桌機：LINE PC 版不支援 URL scheme，複製後開加好友頁讓客人貼上
+    const go = () => {
+      sheetbg.classList.remove('show');
+      if (IS_MOBILE) {
+        showToast('訊息已複製 ✂️ 若 LINE 訊息欄是空的，長按貼上再送出');
+        location.href = pendingHref;
+      } else {
+        showToast('訊息已複製 ✂️ 到 LINE 訊息欄貼上送出');
+        window.open('https://lin.ee/KsgEJMw', '_blank');
+      }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(msg).then(go, go);
+    } else {
+      try {
+        const r = document.createRange();
+        r.selectNodeContents(sheetmsg);
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        document.execCommand('copy');
+      } catch (e) {}
+      go();
+    }
+  });
+  document.getElementById('sheetx').addEventListener('click', () => sheetbg.classList.remove('show'));
+  sheetbg.addEventListener('click', e => { if (e.target === sheetbg) sheetbg.classList.remove('show'); });
+  // 首屏趨勢輪播：淡入淡出、只播放當前那支影片（省流量）
+  const hslides = document.querySelectorAll('.hslide');
+  const hdots = document.querySelectorAll('.hdots span');
+  let hIdx = 0;
+  function showHero(n) {
+    hslides.forEach((s, i) => {
+      s.classList.toggle('on', i === n);
+      const v = s.querySelector('video');
+      if (!v) return;
+      if (i === n) {
+        if (!v.src && v.dataset.hsrc) v.src = v.dataset.hsrc;
+        v.play().catch(function () {});
+      } else { v.pause(); }
+    });
+    hdots.forEach((d, i) => d.classList.toggle('on', i === n));
+  }
+  if (hslides.length) {
+    showHero(0);
+    setInterval(() => { hIdx = (hIdx + 1) % hslides.length; showHero(hIdx); }, 6000);
+  }
+  // 導覽列 scroll-spy：滑到哪一區、對應按鈕亮起
+  const navLinks = document.querySelectorAll('.topnav a');
+  // 錨點跳轉前先載入全部作品，避免分批載入把目標區往下推
+  navLinks.forEach(a => a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href.charAt(0) !== '#') return; // 一般連結（AI配對頁）直接放行
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    vLimit = 9999;
+    applyFilter(curF);
+    requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }));
+  const spyIO = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    const id = '#' + en.target.id;
+    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === id));
+  }), { rootMargin: '-30% 0px -55% 0px' });
+  ['grid', 'guide', 'steps', 'faq'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) spyIO.observe(el);
+  });
+  // 滑動進場：淡入上浮、同排交錯
+  const rvEls = document.querySelectorAll('.item, .gcard, .step, #faq details, .shead, .about > *');
+  rvEls.forEach(el => {
+    el.classList.add('rv');
+    const sibs = Array.prototype.slice.call(el.parentElement.children);
+    el.style.transitionDelay = ((sibs.indexOf(el) % 3) * 110) + 'ms';
+  });
+  const rio = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add('in'); rio.unobserve(en.target); }
+  }), { rootMargin: '0px 0px -6% 0px' });
+  rvEls.forEach(el => rio.observe(el));
+  const flineBtn = document.querySelector('.fline');
+  if (flineBtn) flineBtn.addEventListener('click', () => track('fline'));
+  // #card-XXX 深連結：從 SEO 頁/分享連結進來直接跳到該作品並閃一下
+  if (location.hash.indexOf('#card-') === 0) {
+    const dlId = location.hash.replace(/[^#a-zA-Z0-9-]/g, '');
+    const dlEl = document.querySelector(dlId);
+    if (dlEl) {
+      vLimit = 9999;
+      applyFilter('all');
+      setTimeout(() => {
+        dlEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        dlEl.classList.add('flash');
+        setTimeout(() => dlEl.classList.remove('flash'), 2200);
+      }, 350);
+    }
+  }
+  document.addEventListener('contextmenu', e => { if (e.target.closest('.imgbox, .dmedia')) e.preventDefault(); });
+  document.addEventListener('dragstart', e => e.preventDefault());
+</script>
+</body>
+</html>

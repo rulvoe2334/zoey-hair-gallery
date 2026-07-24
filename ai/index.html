@@ -1,0 +1,239 @@
+<meta charset="utf-8">
+<script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+<title>髮型師的 AI 起手式｜Zoey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg:#101116; --panel:#1a1c21; --panel2:#22242b; --line:#2c2f37;
+    --ink:#f0efec; --muted:#9a9aa0; --amber:#FFB02E; --amber-ink:#FFB02E;
+    --ok:#5fd48a; --chip-bg:rgba(255,176,46,.13);
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+      --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00;
+      --ok:#2e8b57; --chip-bg:rgba(160,106,0,.1); }
+  }
+  :root[data-theme="dark"] { --bg:#101116; --panel:#1a1c21; --panel2:#22242b; --line:#2c2f37;
+    --ink:#f0efec; --muted:#9a9aa0; --amber:#FFB02E; --amber-ink:#FFB02E;
+    --ok:#5fd48a; --chip-bg:rgba(255,176,46,.13); }
+  :root[data-theme="light"] { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+    --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00;
+    --ok:#2e8b57; --chip-bg:rgba(160,106,0,.1); }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:"PingFang TC","Heiti TC","Microsoft JhengHei",sans-serif;
+    line-height:1.75; font-size:16px; padding:0 20px 80px; }
+  .wrap { max-width:640px; margin:0 auto; }
+
+  header { padding:56px 0 36px; }
+  .eyebrow { font-size:12px; letter-spacing:.22em; color:var(--amber-ink); font-weight:700; margin-bottom:14px; }
+  h1 { font-size:34px; line-height:1.3; font-weight:800; text-wrap:balance; margin-bottom:14px; }
+  h1 em { font-style:normal; color:var(--amber-ink); }
+  .lede { color:var(--muted); font-size:15px; }
+  .meta-hook { margin-top:22px; background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--amber);
+    border-radius:12px; padding:14px 16px; font-size:14px; }
+  .meta-hook b { color:var(--amber-ink); }
+
+  .toc { display:flex; flex-direction:column; gap:8px; margin:8px 0 40px; }
+  .toc a { display:flex; gap:12px; align-items:baseline; text-decoration:none; color:var(--ink);
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 16px; font-size:15px; }
+  .toc a:hover, .toc a:focus-visible { border-color:var(--amber); outline:none; }
+  .toc .no { font-variant-numeric:tabular-nums; color:var(--amber-ink); font-weight:800; font-size:13px; }
+  .toc .est { margin-left:auto; font-size:12px; color:var(--muted); white-space:nowrap; }
+
+  section { margin-bottom:52px; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .sec-head .no { color:var(--amber-ink); font-weight:800; font-size:14px; font-variant-numeric:tabular-nums; }
+  h2 { font-size:23px; font-weight:800; line-height:1.35; text-wrap:balance; }
+  .sec-sub { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .sec-sub b { color:var(--ink); }
+
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:14px; }
+  .card h3 { font-size:16px; font-weight:700; margin-bottom:10px; }
+
+  ol.steps { list-style:none; counter-reset:st; display:flex; flex-direction:column; gap:14px; }
+  ol.steps li { counter-increment:st; display:flex; gap:14px; font-size:15px; }
+  ol.steps li::before { content:counter(st); flex:0 0 26px; height:26px; border-radius:50%;
+    background:var(--chip-bg); color:var(--amber-ink); font-weight:800; font-size:13px;
+    display:flex; align-items:center; justify-content:center; margin-top:3px; font-variant-numeric:tabular-nums; }
+  ol.steps .path { font-weight:700; }
+  ol.steps small { display:block; color:var(--muted); font-size:13px; margin-top:2px; }
+
+  .chat { display:flex; flex-direction:column; gap:8px; background:var(--panel2); border-radius:14px; padding:16px; margin:14px 0 4px; }
+  .chat .lbl { font-size:11px; color:var(--muted); text-align:center; margin-bottom:2px; }
+  .bub { max-width:85%; padding:9px 13px; border-radius:15px; font-size:14px; line-height:1.6; }
+  .bub.them { background:var(--panel); border:1px solid var(--line); border-bottom-left-radius:5px; align-self:flex-start; }
+  .bub.me { background:var(--chip-bg); border:1px solid var(--amber); border-bottom-right-radius:5px; align-self:flex-end; }
+  .bub .tag { display:block; font-size:10px; color:var(--amber-ink); font-weight:700; margin-bottom:3px; }
+
+  .prompt { position:relative; background:var(--panel2); border:1px dashed var(--line); border-radius:12px;
+    padding:16px 16px 40px; font-size:14px; line-height:1.8; margin:12px 0 4px; white-space:pre-wrap; }
+  .prompt .cp { position:absolute; right:10px; bottom:8px; border:1px solid var(--line); background:var(--panel);
+    color:var(--amber-ink); font-size:12px; font-weight:700; border-radius:8px; padding:4px 12px; cursor:pointer; font-family:inherit; }
+  .prompt .cp:focus-visible { outline:2px solid var(--amber); }
+
+  .tip { display:flex; gap:10px; font-size:14px; color:var(--muted); background:var(--panel); border:1px solid var(--line);
+    border-radius:12px; padding:12px 14px; margin-top:10px; }
+  .tip::before { content:"眉角"; flex:0 0 auto; color:var(--amber-ink); font-weight:800; font-size:12px; margin-top:2px; letter-spacing:.1em; }
+  .tip b { color:var(--ink); }
+
+  .tools { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px; }
+  .tool { font-size:13px; border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:5px 14px; color:var(--muted); }
+  .tool b { color:var(--ink); font-weight:700; }
+
+  details { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px; }
+  summary { cursor:pointer; font-weight:700; font-size:15px; }
+  summary:focus-visible { outline:2px solid var(--amber); border-radius:6px; }
+  details p { margin-top:10px; font-size:14px; color:var(--muted); }
+  details b { color:var(--ink); }
+
+  .done-strip { display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ok); font-weight:700;
+    border:1px solid var(--ok); border-radius:12px; padding:12px 16px; background:transparent; margin-top:14px; }
+
+  .cta { background:var(--panel); border:1.5px solid var(--amber); border-radius:18px; padding:26px 22px; text-align:center; }
+  .cta h2 { margin-bottom:8px; }
+  .cta p { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-block; text-decoration:none; font-weight:800; font-size:15px; border-radius:999px; padding:12px 26px; }
+  .btn.main { background:var(--amber); color:#181818; }
+  .btn.ghost { border:1.5px solid var(--line); color:var(--ink); }
+  .btn:focus-visible { outline:2px solid var(--amber-ink); outline-offset:2px; }
+
+  footer { margin-top:44px; text-align:center; font-size:12px; color:var(--muted); }
+  @media (prefers-reduced-motion:no-preference) {
+    .toc a, .btn { transition:transform .15s ease, border-color .15s ease; }
+    .toc a:hover { transform:translateX(3px); }
+    .btn:hover { transform:translateY(-2px); }
+  }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">ZOEY · 髮型師的 AI 筆記</div>
+  <h1>把重複的事，<br>交給 <em>AI</em> 做</h1>
+  <p class="lede">不會寫程式也能上手的 3 個起手式——都是我自己店裡每天在用的，全部可以 0 元開始。</p>
+  <div class="meta-hook">你會收到這一頁，是因為你留言了「AI」，機器人在 0.5 秒內自動傳給你——<b>這本身就是第 1 課的成品</b>。往下看，20 分鐘後你的帳號也做得到。</div>
+</header>
+
+<nav class="toc">
+  <a href="#c1"><span class="no">第 1 課</span>IG 留言自動回覆<span class="est">⏱ 20 分鐘</span></a>
+  <a href="#c2"><span class="no">第 2 課</span>AI 幫你寫文案和腳本<span class="est">⏱ 10 分鐘</span></a>
+  <a href="#c3"><span class="no">第 3 課</span>影片自動上字幕、剪贅詞<span class="est">⏱ 30 分鐘</span></a>
+</nav>
+
+<section id="c1">
+  <div class="sec-head"><span class="no">第 1 課</span><h2>IG 留言自動回覆</h2></div>
+  <p class="sec-sub">用 Meta <b>官方內建、免費</b>的功能，不用裝任何第三方 App，也不會有被封號的風險。</p>
+
+  <div class="chat">
+    <div class="lbl">完成後長這樣</div>
+    <div class="bub them">AI</div>
+    <div class="bub me"><span class="tag">⚡ 自動回覆</span>哈囉～這是完整教學 👇<br>（你想給的連結）</div>
+  </div>
+
+  <div class="card">
+    <h3>設定步驟</h3>
+    <ol class="steps">
+      <li><span><span class="path">business.facebook.com</span> 登入後 → 左邊選「收件匣」<small>IG 要先切成專業帳號，並連結一個 FB 粉專</small></span></li>
+      <li><span>點「自動化」→ 建立自動化 → 選「<span class="path">留言以傳送訊息</span>」</span></li>
+      <li><span>設定觸發關鍵字<small>設「單一詞」就好，例如：AI、圖鑑、價目。不要設整句話</small></span></li>
+      <li><span>寫兩段文字：<span class="path">私訊內容</span>（放連結＋一個開放問題）和<span class="path">公開回覆</span><small>開放問題的目的：對方一回覆，就變成真人對話，演算法也加分</small></span></li>
+      <li><span>開啟後，用小帳留言測試一次</span></li>
+    </ol>
+  </div>
+  <div class="tip">對方常常找不到訊息——它會掉在 IG 的「<b>訊息邀請</b>」那格。公開回覆記得寫「沒看到的話，翻一下訊息邀請」。</div>
+  <div class="done-strip">✓ 做完這課，你發的每一篇作品文都能自動接住詢問</div>
+</section>
+
+<section id="c2">
+  <div class="sec-head"><span class="no">第 2 課</span><h2>AI 幫你寫文案和腳本</h2></div>
+  <p class="sec-sub">工具用哪一家都可以，<b>免費版就夠用</b>。重點不在工具，在你怎麼「交代」它。</p>
+  <div class="tools">
+    <span class="tool"><b>Claude</b>（我在用的）</span>
+    <span class="tool"><b>ChatGPT</b></span>
+    <span class="tool"><b>Gemini</b></span>
+  </div>
+
+  <div class="card">
+    <h3>直接複製這個 prompt（以作品文為例）</h3>
+    <div class="prompt" id="p1">你是我的 IG 小編。我是台中的女性髮型設計師，客人多是 25–45 歲的上班族女生。
+
+幫我為這次的作品寫 3 版 IG 文案：
+・髮型：奶茶棕、及肩短髮（換成你的）
+・客人的煩惱：黃肌怕顯黑、髮量少（換成你的）
+・我的語氣：像朋友聊天，不用推銷詞，不要「寶寶們」
+・結尾固定加一句：留言「圖鑑」，我把作品集傳給你
+
+每版 100 字以內，先給我 3 個不同的開頭鉤子。<button class="cp" data-t="p1">複製</button></div>
+  </div>
+  <div class="tip">把你<b>過去寫得最好的 2 篇貼文</b>貼給它「學你的語氣」，之後產出會越來越像你本人。</div>
+  <div class="done-strip">✓ 做完這課，一篇文案從 40 分鐘變 5 分鐘</div>
+</section>
+
+<section id="c3">
+  <div class="sec-head"><span class="no">第 3 課</span><h2>影片自動上字幕、剪贅詞</h2></div>
+  <p class="sec-sub">兩條路線，先走手機的就好，<b>10 支影片以後</b>再考慮電腦路線。</p>
+
+  <div class="card">
+    <h3>手機路線（免費・最快上手）</h3>
+    <ol class="steps">
+      <li><span>剪映或 CapCut → 匯入影片 → 「<span class="path">自動字幕</span>」<small>中文辨識很準，錯字手動改 2–3 處就好</small></span></li>
+      <li><span>逐句聽一次，把「然後、就是、嗯⋯」的段落<span class="path">整段刪掉</span><small>贅詞剪掉後，影片節奏會直接快一個檔次</small></span></li>
+      <li><span>字幕別用預設樣式：白字＋深色描邊，關鍵字換一個固定的品牌色</span></li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>電腦路線（我這支影片的做法）</h3>
+    <p style="font-size:14px; color:var(--muted);">用 Whisper（免費開源）把影片轉成逐字稿，丟給 AI 標出贅詞和冷場的時間點，再自動輸出成品——連字幕動畫都是 AI 排的。這條需要一點電腦操作，想學的人在 IG 跟我說，人多我就出下一篇。</p>
+  </div>
+  <div class="tip">影片裡那個口播聲音也是 AI 用我的聲音生成的（本機跑、聲音不上傳）。這屬於進階題，<b>想聽我聊這個就留言「聲音」</b>。</div>
+  <div class="done-strip">✓ 做完這課，一支 Reels 的後製從 2 小時變 20 分鐘</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>常見問題</h2></div>
+  <details>
+    <summary>這些要花錢嗎？</summary>
+    <p>這一頁教的<b>全部免費</b>：Meta 自動回覆是官方內建，AI 工具和剪映的免費版就夠用。等你用出習慣，再考慮付費版也不遲。</p>
+  </details>
+  <details>
+    <summary>設自動回覆會不會被 IG 封號？</summary>
+    <p>不會。這是 Meta <b>自家後台的官方功能</b>，跟外掛程式不一樣。要小心的反而是來路不明的第三方工具，別隨便授權你的帳號。</p>
+  </details>
+  <details>
+    <summary>我完全不會電腦，真的做得來嗎？</summary>
+    <p>第 1、2 課<b>用手機就能完成</b>。我自己也不會寫程式，所有東西都是用「講的」請 AI 做——你唯一要練的是把需求講清楚。</p>
+  </details>
+</section>
+
+<section class="cta">
+  <h2>卡住了？</h2>
+  <p>照著做遇到問題，或想先知道你的店該從哪一步開始——直接來聊。</p>
+  <div class="btns">
+    <a class="btn main" href="https://lin.ee/KsgEJMw">加我的 LINE</a>
+    <a class="btn ghost" href="https://www.instagram.com/zoeyyyyyy227/">IG 私訊我</a>
+  </div>
+</section>
+
+<section class="cta" style="margin-top:28px">
+  <h2>想要我手把手帶？</h2>
+  <p>照著做還是卡住、或想直接排優先順序——我有開一對一導入陪跑。</p>
+  <div class="btns"><a class="btn main" href="/ai/pro/">看陪跑方案 →</a></div>
+</section>
+
+<footer>Zoey · 台中髮型師 — 這一頁（含機器人傳送）就是用本文教的方法做出來的。</footer>
+</div>
+
+<script>
+document.querySelectorAll('.cp').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const node = document.getElementById(btn.dataset.t).cloneNode(true);
+    node.querySelector('.cp').remove();
+    navigator.clipboard.writeText(node.textContent.trim()).then(() => {
+      btn.textContent = '已複製 ✓';
+      setTimeout(() => { btn.textContent = '複製'; }, 1600);
+    });
+  });
+});
+</script>

@@ -1,0 +1,154 @@
+<meta charset="utf-8">
+<script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<title>AI 導入陪跑｜Zoey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg:#0d0d10; --panel:#17171a; --panel2:#1d1d21; --line:#26262b;
+    --ink:#efece6; --muted:#9b917f; --amber:#FFB02E; --amber-ink:#FFB02E; --gold:#c9a35c;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+      --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00; --gold:#8a6a28; }
+  }
+  :root[data-theme="dark"] { --bg:#0d0d10; --panel:#17171a; --panel2:#1d1d21; --line:#26262b;
+    --ink:#efece6; --muted:#9b917f; --amber:#FFB02E; --amber-ink:#FFB02E; --gold:#c9a35c; }
+  :root[data-theme="light"] { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+    --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00; --gold:#8a6a28; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:"Noto Serif CJK TC","Noto Serif TC",serif;
+    line-height:1.85; font-size:16px; padding:0 22px 70px; }
+  .wrap { max-width:620px; margin:0 auto; }
+
+  header { padding:56px 0 30px; }
+  .eyebrow { font-size:10px; letter-spacing:.42em; color:var(--gold); margin-bottom:14px; font-weight:500; }
+  h1 { font-size:32px; line-height:1.35; font-weight:700; letter-spacing:.04em; text-wrap:balance; margin-bottom:14px; }
+  h1 em { font-style:normal; color:var(--amber-ink); }
+  .lede { color:var(--muted); font-size:14.5px; }
+  .rule { height:1px; background:linear-gradient(90deg,var(--line),transparent); margin:26px 0; }
+
+  .proof { display:flex; gap:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:36px; }
+  .proof div { flex:1; padding:16px 8px; text-align:center; background:var(--panel); }
+  .proof div + div { border-left:1px solid var(--line); }
+  .proof .n { font-size:22px; font-weight:700; color:var(--amber-ink); }
+  .proof .l { font-size:10.5px; color:var(--muted); letter-spacing:.12em; margin-top:3px; }
+
+  h2 { font-size:21px; font-weight:700; letter-spacing:.05em; margin-bottom:6px; text-wrap:balance; }
+  .sec-sub { color:var(--muted); font-size:13.5px; margin-bottom:18px; }
+
+  .plan { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px 22px; margin-bottom:18px; position:relative; }
+  .plan.hot { border-color:rgba(255,176,46,.5); }
+  .plan .tag { position:absolute; top:-11px; left:22px; background:var(--amber); color:#181818;
+    font-size:10.5px; font-weight:700; letter-spacing:.2em; padding:3px 12px; border-radius:999px; }
+  .plan h3 { font-size:18px; font-weight:700; margin-bottom:2px; }
+  .plan .for { font-size:12px; color:var(--gold); letter-spacing:.1em; margin-bottom:14px; }
+  .plan ul { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:18px; }
+  .plan li { font-size:14px; padding-left:20px; position:relative; color:var(--ink); }
+  .plan li::before { content:"—"; position:absolute; left:0; color:var(--amber-ink); }
+  .plan li small { color:var(--muted); }
+  .price-row { display:flex; align-items:baseline; gap:10px; border-top:1px solid var(--line); padding-top:16px; }
+  .price { font-size:26px; font-weight:700; letter-spacing:.02em; }
+  .price small { font-size:12px; color:var(--muted); font-weight:500; }
+
+  .steps { counter-reset:s; display:flex; flex-direction:column; gap:12px; margin-bottom:8px; }
+  .steps div { counter-increment:s; display:flex; gap:13px; font-size:14px; align-items:baseline; }
+  .steps div::before { content:counter(s); flex:0 0 24px; height:24px; border:1px solid var(--gold);
+    color:var(--gold); border-radius:50%; font-size:12px; display:flex; align-items:center; justify-content:center; }
+
+  details { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:13px 17px; margin-bottom:10px; }
+  summary { cursor:pointer; font-weight:700; font-size:14.5px; }
+  details p { margin-top:9px; font-size:13.5px; color:var(--muted); }
+  details b { color:var(--ink); }
+
+  .cta { text-align:center; border:1.5px solid var(--amber); border-radius:18px; padding:28px 20px; background:var(--panel); }
+  .cta h2 { margin-bottom:6px; }
+  .cta p { font-size:13.5px; color:var(--muted); margin-bottom:18px; }
+  .btn { display:inline-block; text-decoration:none; font-weight:700; font-size:15px;
+    background:var(--amber); color:#181818; border-radius:999px; padding:13px 34px; letter-spacing:.05em; }
+  .btn:focus-visible { outline:2px solid var(--amber-ink); outline-offset:2px; }
+  footer { margin-top:40px; text-align:center; font-size:11.5px; color:var(--muted); letter-spacing:.08em; }
+  footer a { color:var(--gold); }
+  section { margin-bottom:44px; }
+  @media (prefers-reduced-motion:no-preference) {
+    .btn { transition:transform .15s ease; }
+    .btn:hover { transform:translateY(-2px); }
+  }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">ZOEY · AI 導入陪跑</div>
+  <h1>教學頁照著做還是卡住？<br>我<em>手把手</em>帶你跑起來</h1>
+  <p class="lede">我是髮型師，不是工程師——所以我知道你卡在哪。所有流程都在我自己的店跑了幾個月，不是理論。</p>
+</header>
+
+<div class="proof">
+  <div><div class="n">0→1</div><div class="l">不會程式開始</div></div>
+  <div><div class="n">20分</div><div class="l">一支片的後製</div></div>
+  <div><div class="n">24hr</div><div class="l">留言自動回覆</div></div>
+</div>
+
+<section>
+  <h2>兩種方式</h2>
+  <p class="sec-sub">依你想「學會」還是想「直接用」來選。</p>
+
+  <div class="plan hot">
+    <div class="tag">最多人選</div>
+    <h3>一對一導入諮詢</h3>
+    <div class="for">適合：想自己學會、之後不求人</div>
+    <ul>
+      <li>2 小時，線上進行、全程實作<small>（不是聽課，是當場做出來）</small></li>
+      <li>照你的帳號現況排優先順序：自動回覆／AI 文案／影片字幕</li>
+      <li>結束後 7 天內，卡住可以直接問我</li>
+    </ul>
+    <div class="price-row"><span class="price">NT$ 3,600</span><small>／2 小時</small></div>
+  </div>
+
+  <div class="plan">
+    <h3>代設定：留言自動回覆</h3>
+    <div class="for">適合：不想學、直接要結果</div>
+    <ul>
+      <li>我幫你把「留言關鍵字 → 自動私訊」完整上線</li>
+      <li>含引流文案包：關鍵字設計＋私訊話術＋公開回覆</li>
+      <li>交付時教你日常怎麼看數據、怎麼換檔期</li>
+    </ul>
+    <div class="price-row"><span class="price">NT$ 4,800</span><small>／一次到位</small></div>
+  </div>
+</section>
+
+<section>
+  <h2>怎麼開始</h2>
+  <div class="rule" style="margin:14px 0 18px"></div>
+  <div class="steps">
+    <div>加 LINE，跟我說你想解決哪一塊（丟你的 IG 帳號給我看更快）</div>
+    <div>我回你適合的方案＋可以的時段</div>
+    <div>付訂後排時間，開始</div>
+  </div>
+</section>
+
+<section>
+  <h2>常見問題</h2>
+  <div class="rule" style="margin:14px 0 18px"></div>
+  <details>
+    <summary>我完全不會電腦，可以嗎？</summary>
+    <p>可以，<b>我自己就是從零開始的</b>。一對一會照你的程度調速度，做不出來不會跳下一步。</p>
+  </details>
+  <details>
+    <summary>跟免費教學頁差在哪？</summary>
+    <p>教學頁是地圖，諮詢是<b>我坐在你旁邊帶你走</b>——你的帳號、你的文案、你的實際狀況，當場做到能用為止。</p>
+  </details>
+  <details>
+    <summary>可以開收據或報帳嗎？</summary>
+    <p>個人報名會提供<b>收據</b>；店家需要報帳的話，配合貴店的<b>勞務報酬單</b>流程，加 LINE 時先說一聲即可。</p>
+  </details>
+</section>
+
+<section class="cta">
+  <h2>先聊聊你卡在哪</h2>
+  <p>問問題不用錢，聊完再決定要不要。</p>
+  <a class="btn" href="https://lin.ee/KsgEJMw">加 LINE 聊聊</a>
+</section>
+
+<footer>Zoey · 台中髮型師 — 免費版在這：<a href="/ai/">AI 三堂入門教學</a></footer>
+</div>

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 髮型配對｜Zoey 柔伊</title>
+<meta name="description" content="回答 5 個問題，從 Zoey 的真實作品中配對最適合妳的髮型，並告訴妳為什麼。">
+<style>
+  :root { --paper:#faf8f6; --card:#fffdfb; --ink:#2b2326; --ink2:#5f5659; --ink3:#8f8487;
+    --accent:#8e4a5c; --deep:#6f3648; --wash:#f6edef; --line:#e2d7d9; --hairline:#d8c3c9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--paper); color:var(--ink);
+    font-family:"Songti TC","Noto Serif TC","PingFang TC",serif; line-height:1.8; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 20px 90px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:14px 4px; }
+  .topbar a { color:var(--ink2); text-decoration:none; font-size:13px; letter-spacing:.12em;
+    border:1px solid var(--hairline); background:var(--card); border-radius:999px; padding:7px 15px; }
+  header { text-align:center; margin:26px 0 8px; }
+  .eyebrow { font-family:"Avenir Next",sans-serif; font-size:12px; letter-spacing:.45em; color:var(--accent); font-weight:600; }
+  h1 { font-size:clamp(26px,5.4vw,34px); letter-spacing:.14em; margin:10px 0 8px; }
+  .lead { color:var(--ink2); font-size:14.5px; letter-spacing:.06em; max-width:480px; margin:0 auto; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px;
+    box-shadow:0 8px 30px rgba(60,40,48,.06); padding:24px 22px; margin-top:22px; }
+  .qnum { font-family:"Avenir Next",sans-serif; font-size:11.5px; color:var(--accent);
+    font-weight:600; letter-spacing:.25em; }
+  .qtitle { font-size:16.5px; font-weight:700; letter-spacing:.08em; margin:3px 0 13px; }
+  .chips { display:flex; flex-wrap:wrap; gap:9px; }
+  .chip { border:1px solid var(--hairline); background:#fff; color:var(--ink);
+    padding:9px 16px; border-radius:999px; font-size:14px; cursor:pointer;
+    letter-spacing:.05em; transition:all .15s ease; user-select:none; }
+  .chip:hover { border-color:var(--deep); }
+  .chip.on { background:var(--deep); border-color:var(--deep); color:#fff;
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35); }
+  .q + .q { margin-top:20px; padding-top:20px; border-top:1px dashed var(--line); }
+  .cta { margin-top:26px; text-align:center; }
+  .btn { background:var(--deep); color:#fff; border:none; padding:14px 42px; border-radius:999px;
+    font-size:15.5px; letter-spacing:.2em; font-family:inherit; cursor:pointer;
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35), 0 6px 18px rgba(111,54,72,.28);
+    transition:transform .12s ease, opacity .2s; }
+  .btn:hover { transform:translateY(-1px); }
+  .btn:disabled { opacity:.35; cursor:not-allowed; transform:none; box-shadow:none; }
+  .btn.ghost { background:var(--card); color:var(--deep); box-shadow:none; border:1px solid var(--deep); }
+  .hidden { display:none; }
+  .rhead { text-align:center; margin:34px 0 2px; }
+  .rhead h2 { font-size:21px; letter-spacing:.14em; }
+  .rhead p { color:var(--ink2); font-size:13.5px; margin-top:6px; }
+  .match { display:flex; gap:16px; }
+  .thumb { width:118px; min-width:118px; border-radius:14px; overflow:hidden; position:relative; }
+  .thumb img { width:100%; height:100%; min-height:170px; object-fit:cover; object-position:top; display:block; }
+  .rank { position:absolute; top:8px; left:8px; background:rgba(43,35,38,.55); color:#fff;
+    font-family:"Avenir Next",sans-serif; font-size:11.5px; font-weight:600;
+    padding:2px 9px; border-radius:999px; backdrop-filter:blur(3px); }
+  .minfo { flex:1; min-width:0; }
+  .mno { font-family:"Avenir Next",sans-serif; font-size:11.5px; color:var(--ink3); letter-spacing:.18em; }
+  .mname { font-size:16.5px; font-weight:700; letter-spacing:.06em; margin:1px 0 0; }
+  .mmeta { color:var(--ink2); font-size:12.5px; margin:2px 0 9px; }
+  .bar { height:7px; background:var(--wash); border-radius:999px; overflow:hidden; max-width:230px; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--deep)); border-radius:999px; }
+  .barlab { font-family:"Avenir Next",sans-serif; font-size:11.5px; color:var(--accent);
+    font-weight:600; letter-spacing:.1em; margin:5px 0 9px; }
+  .reasons { list-style:none; display:flex; flex-wrap:wrap; gap:6px; }
+  .reasons li { font-size:12px; background:var(--wash); border:1px solid var(--line);
+    padding:2px 10px; border-radius:8px; color:var(--ink2); }
+  .snote { font-size:12.5px; color:var(--ink2); background:#fbf7f4; border-left:3px solid var(--hairline);
+    padding:7px 11px; margin-top:10px; border-radius:0 8px 8px 0; line-height:1.7; }
+  .snote b { color:var(--accent); font-weight:600; }
+  .book { margin-top:12px; }
+  .book a { font-size:13px; letter-spacing:.1em; color:#fff; background:var(--deep); text-decoration:none;
+    box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35); padding:8px 18px; border-radius:999px; display:inline-block; }
+  footer { text-align:center; color:var(--ink3); font-size:12px; letter-spacing:.08em; margin-top:44px; }
+  .sheetbg { position:fixed; inset:0; background:rgba(43,35,38,.45); z-index:60;
+    display:flex; align-items:flex-end; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .25s; }
+  .sheetbg.show { opacity:1; pointer-events:auto; }
+  .sheet { background:var(--card); border-radius:20px 20px 0 0; padding:24px 22px 34px;
+    width:min(560px,100%); transform:translateY(24px); transition:transform .25s; }
+  .sheetbg.show .sheet { transform:none; }
+  .sheet h3 { font-size:15px; letter-spacing:.12em; margin-bottom:10px; }
+  .sheetmsg { background:var(--wash); border:1px dashed var(--hairline); border-radius:12px;
+    padding:12px 14px; font-size:13.5px; margin-bottom:16px; }
+  .toast { position:fixed; left:50%; bottom:30px; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:#fff; font-size:13px; letter-spacing:.06em; padding:10px 20px;
+    border-radius:999px; opacity:0; pointer-events:none; transition:all .3s; z-index:70; white-space:nowrap; }
+  .toast.show { opacity:1; transform:translateX(-50%); }
+  @media (max-width:520px){
+    .match { gap:12px; }
+    .thumb { width:104px; min-width:104px; }
+  }
+</style>
+<script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><a href="../">← 回作品圖鑑</a><a href="https://lin.ee/KsgEJMw">LINE 預約</a></div>
+  <header>
+    <div class="eyebrow">AI HAIR MATCH</div>
+    <h1>找出最適合妳的髮型</h1>
+    <p class="lead">回答 5 個問題，從 Zoey 的 46 件真實作品裡配對最適合妳的造型，並告訴妳為什麼。</p>
+  </header>
+
+  <div class="card" id="quiz">
+    <div class="q"><div class="qnum">Q1 / 5</div><div class="qtitle">妳的臉型比較接近？</div>
+      <div class="chips" data-key="face">
+        <span class="chip" data-v="鵝蛋臉">鵝蛋臉</span><span class="chip" data-v="圓臉">圓臉</span>
+        <span class="chip" data-v="方臉">方臉／國字臉</span><span class="chip" data-v="心形臉">心形／瓜子臉</span>
+        <span class="chip" data-v="長臉">長臉</span><span class="chip" data-v="菱形臉">菱形／顴骨明顯</span>
+        <span class="chip" data-v="any">不確定</span>
+      </div></div>
+    <div class="q"><div class="qnum">Q2 / 5</div><div class="qtitle">想要的長度？</div>
+      <div class="chips" data-key="len">
+        <span class="chip" data-v="短">短髮</span><span class="chip" data-v="中">中長髮</span>
+        <span class="chip" data-v="長">長髮</span><span class="chip" data-v="any">都可以</span>
+      </div></div>
+    <div class="q"><div class="qnum">Q3 / 5</div><div class="qtitle">想走的色系方向？</div>
+      <div class="chips" data-key="cg">
+        <span class="chip" data-v="特殊">想冒險特殊色</span><span class="chip" data-v="棕">質感棕・霧感自然色</span>
+        <span class="chip" data-v="黑">黑髮・極簡低調</span><span class="chip" data-v="any">不限</span>
+      </div></div>
+    <div class="q"><div class="qnum">Q4 / 5</div><div class="qtitle">可以接受漂髮嗎？</div>
+      <div class="chips" data-key="bleach">
+        <span class="chip" data-v="ok">可以，想漂亮就衝</span><span class="chip" data-v="no">不想漂</span>
+        <span class="chip" data-v="any">看情況</span>
+      </div></div>
+    <div class="q"><div class="qnum">Q5 / 5</div><div class="qtitle">平常願意花多少心力整理？</div>
+      <div class="chips" data-key="maint">
+        <span class="chip" data-v="低">越省事越好</span><span class="chip" data-v="中">適中</span>
+        <span class="chip" data-v="高">願意精緻打理</span><span class="chip" data-v="any">沒差</span>
+      </div></div>
+    <div class="cta"><button class="btn" id="go" disabled>看我的配對結果</button></div>
+  </div>
+
+  <div class="hidden" id="results">
+    <div class="rhead"><h2>為妳配對的 3 款</h2><p id="rsub"></p></div>
+    <div id="cards"></div>
+    <div class="cta">
+      <button class="btn ghost" id="again">重新配對一次</button>
+    </div>
+  </div>
+
+  <footer>配對來源：Zoey 的真實作品資料庫・實際效果依髮況到店評估</footer>
+</div>
+
+<div class="sheetbg" id="sheetbg"><div class="sheet">
+  <h3>傳這句給 Zoey 就可以了</h3>
+  <div class="sheetmsg" id="sheetmsg"></div>
+  <div style="text-align:center"><button class="btn" id="sheetgo">複製訊息・開啟 LINE</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var CATALOG = [{"id":"002","name":"藍黑紫調直髮bob","tagline":"短髮 ・ 直 ・ 藍黑紫","img":"002-藍黑紫直bob.jpeg","len":"短","diff":"中","cg":"特殊","bleach":true,"fits":["長臉","鵝蛋臉"],"cautions":["圓臉","方臉"],"note":"齊瀏海加齊平下顎的直線bob是雙重橫向線條，最能縮短長臉比例，但會放大圓潤與方角"},{"id":"003","name":"霧感灰紫bob","tagline":"短髮 ・ 直 ・ 灰紫","img":"003-霧感灰紫bob.jpeg","len":"短","diff":"高","cg":"特殊","bleach":true,"fits":["鵝蛋臉","心形臉","長臉"],"cautions":["圓臉"],"note":"齊下巴微內收的重量感能替尖下巴補量、縮短臉長，齊平線落在下顎易凸顯圓臉"},{"id":"004","name":"高明度銀灰外翹bob","tagline":"短髮 ・ 直 ・ 銀灰","img":"004-銀灰外翹bob.jpeg","len":"短","diff":"高","cg":"特殊","bleach":true,"fits":["圓臉","心形臉","鵝蛋臉"],"cautions":["方臉"],"note":"及肩外翹把重心放在下巴以下，縱向拉長又替尖下巴補量，直線輪廓方臉要慎選"},{"id":"006","name":"黑藍底紫挑染bob","tagline":"短髮 ・ 直 ・ 黑藍紫","img":"006-黑藍紫挑染bob.jpeg","len":"短","diff":"中","cg":"特殊","bleach":true,"fits":["長臉","鵝蛋臉"],"cautions":["圓臉","方臉"],"note":"一刀切齊平bob線條俐落，橫向線條可縮短長臉，但會強調下顎的寬度與直角"},{"id":"008","name":"深棕大波浪","tagline":"長髮 ・ 大捲 ・ 深棕","img":"008-深棕大波浪長髮.jpeg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["圓臉","方臉","心形臉","鵝蛋臉"],"cautions":[],"note":"過胸大波浪縱向拉長輪廓，捲度柔化下顎線，中下段量感也替尖下巴加分"},{"id":"010","name":"深棕低層次內彎","tagline":"長髮 ・ 微彎 ・ 深棕","img":"010-深棕內彎長髮.jpeg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉","心形臉"],"cautions":["長臉"],"note":"低層次直順線條縱向延伸最顯瘦，髮尾內彎收出小臉感，長臉需搭瀏海避免再拉長"},{"id":"013","name":"深棕挑染大波浪","tagline":"長髮 ・ 大捲 ・ 深棕挑染","img":"013-深棕挑染大波浪.jpeg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","方臉","心形臉","鵝蛋臉"],"cautions":[],"note":"大波浪加挑染增加縱向流動感，捲度柔化下顎稜角，下段量感修飾尖下巴"},{"id":"014","name":"空氣感C彎短鮑伯","tagline":"短髮 ・ 微彎 ・ 深棕","img":"014-C彎短鮑伯.jpeg","len":"短","diff":"低","cg":"棕","bleach":false,"fits":["菱形臉","心形臉","長臉","鵝蛋臉"],"cautions":["圓臉"],"note":"C彎蓬度落在顴骨到下巴、側瀏海修飾顴骨，尖下巴補量剛好，圓臉齊下巴易顯圓"},{"id":"017","name":"藍黑霧灰","tagline":"長髮 ・ 微彎 ・ 藍黑霧灰","img":"017-藍黑霧灰長髮.jpeg","len":"長","diff":"中","cg":"特殊","bleach":true,"fits":["圓臉","心形臉","鵝蛋臉"],"cautions":["長臉"],"note":"過下巴長度加微彎垂墜感拉長臉型，尾端量感補足尖下巴"},{"id":"018","name":"高飽和銅橘紅","tagline":"長髮 ・ 直 ・ 銅橘紅","img":"018-銅橘紅直長髮.jpeg","len":"長","diff":"高","cg":"特殊","bleach":true,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"高飽和直長髮縱向線條俐落，視覺拉長最修圓臉"},{"id":"021","name":"薰衣草灰紫長捲","tagline":"長髮 ・ 大捲 ・ 薰衣草灰紫","img":"020-薰衣草灰紫長捲.jpeg","len":"長","diff":"高","cg":"特殊","bleach":true,"fits":["圓臉","方臉","心形臉","鵝蛋臉"],"cautions":[],"note":"大捲重心在中下段，邊拉長邊柔化線條，下巴以下量感超修飾"},{"id":"022","name":"深莓紫棕長直","tagline":"長髮 ・ 直 ・ 深莓紫棕","img":"022-深莓紫棕長直-poster.jpg","len":"長","diff":"中","cg":"特殊","bleach":true,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"深色系顯瘦，長直髮縱向垂墜把臉修窄，圓臉友善款"},{"id":"023","name":"亞麻冷棕長直","tagline":"長髮 ・ 直 ・ 亞麻","img":"023-亞麻冷棕長直-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"中分長直兩側包臉，縱向線條收窄臉頰，圓臉立刻顯小臉"},{"id":"024","name":"巧克力棕大波浪","tagline":"長髮 ・ 大捲 ・ 深棕","img":"024-巧克力棕大波浪.jpeg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["圓臉","方臉","心形臉","鵝蛋臉"],"cautions":[],"note":"波浪從中段開始，上窄下澎拉長比例，捲度同時柔化下顎線"},{"id":"025","name":"深棕長直","tagline":"長髮 ・ 直 ・ 深棕","img":"025-深棕長直-poster.jpg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"超長直髮垂墜感強，縱向線條顯瘦拉長，圓臉修飾力滿分"},{"id":"026","name":"奶茶棕大捲","tagline":"長髮 ・ 大捲 ・ 淺棕","img":"026-奶茶棕大捲-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["心形臉","方臉","長臉","鵝蛋臉"],"cautions":[],"note":"大捲橫向蓬度平衡臉長，下段量感補足尖下巴、柔化國字線條"},{"id":"027","name":"黑髮光澤特寫","tagline":"長髮 ・ 直 ・ 黑","img":"027-黑髮光澤特寫-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"黑長直光澤面營造縱向視覺，貼合包臉最顯小臉"},{"id":"028","name":"黑色大波浪","tagline":"長髮 ・ 大捲 ・ 黑","img":"028-黑色大波浪-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["方臉","心形臉","菱形臉","鵝蛋臉"],"cautions":[],"note":"波浪量感從顴骨延伸到髮尾，捲度柔化顴骨與下顎稜角"},{"id":"029","name":"黑色微捲鮑伯","tagline":"短髮 ・ 大捲 ・ 黑","img":"029-黑色微捲鮑伯.jpeg","len":"短","diff":"低","cg":"黑","bleach":false,"fits":["長臉","方臉","心形臉","鵝蛋臉"],"cautions":["圓臉"],"note":"空氣瀏海縮短臉長，微捲外翹柔化下顎，長臉方臉都好駕馭"},{"id":"030","name":"狼尾層次短髮","tagline":"短髮 ・ 微彎 ・ 黑","img":"030-狼尾層次短髮-poster.jpg","len":"短","diff":"中","cg":"黑","bleach":false,"fits":["圓臉","方臉","菱形臉"],"cautions":["長臉"],"note":"頂部蓬度拉長比例，臉際碎髮蓋住顴骨、柔化下顎線，圓臉方臉修小臉超有感"},{"id":"031","name":"亞麻棕長直","tagline":"長髮 ・ 直 ・ 亞麻","img":"031-亞麻棕長直-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"過下巴的垂墜直線條把臉往下收，圓臉看起來更修長，鵝蛋臉直接加分"},{"id":"032","name":"紅棕長直","tagline":"長髮 ・ 直 ・ 紅棕","img":"032-紅棕長直-poster.jpg","len":"長","diff":"中","cg":"特殊","bleach":true,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"紅棕顯白又有光澤，縱向直線條幫圓臉拉出修長感，鵝蛋臉怎麼配都好看"},{"id":"033","name":"黑長直柔順","tagline":"長髮 ・ 直 ・ 黑","img":"033-黑長直柔順-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"柔順黑長直的垂直線條最會顯瘦拉長，圓臉立刻精緻，髮質好更加分"},{"id":"034","name":"鎖骨波浪燙","tagline":"中髮 ・ 大捲 ・ 深棕","img":"035-鎖骨波浪燙.jpeg","len":"中","diff":"低","cg":"棕","bleach":false,"fits":["心形臉","圓臉","方臉","鵝蛋臉"],"cautions":[],"note":"八字瀏海修飾顴骨、波浪在下巴以下補量感，尖下巴變柔和，圓方臉也被捲度修飾"},{"id":"036","name":"棕色大波浪","tagline":"長髮 ・ 大捲 ・ 淺棕","img":"036-棕色大波浪-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["方臉","心形臉","鵝蛋臉"],"cautions":["長臉"],"note":"大波浪的弧度柔化下顎稜角，下段蓬鬆幫尖下巴補量感，女人味直接拉滿"},{"id":"037","name":"奶茶棕長直","tagline":"長髮 ・ 直 ・ 淺棕","img":"037-奶茶棕長直-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"奶茶棕柔霧顯白，長直的縱向線條讓圓臉視覺變修長，日常好整理"},{"id":"038","name":"冷調亞麻長直","tagline":"長髮 ・ 直 ・ 亞麻","img":"038-冷調亞麻長直-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"冷調亞麻降低膨脹感，貼順的直線條往下拉長輪廓，圓臉顯瘦首選"},{"id":"039","name":"暗紫紅長直","tagline":"長髮 ・ 直 ・ 暗紫紅","img":"039-暗紫紅長直-poster.jpg","len":"長","diff":"中","cg":"特殊","bleach":true,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"暗紫紅低調有層次光，深色系加縱向直線最收縮，圓臉小臉效果明顯"},{"id":"040","name":"黑髮尾大捲燙","tagline":"長髮 ・ 大捲 ・ 黑","img":"040-黑髮尾大捲燙-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["心形臉","方臉","鵝蛋臉"],"cautions":["長臉"],"note":"髮尾大捲把量感集中在下巴以下，尖下巴變飽滿，弧度也順勢柔化下顎線"},{"id":"043","name":"黑色大波浪長髮","tagline":"長髮 ・ 大捲 ・ 黑","img":"043-黑色大波浪長髮-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["方臉","心形臉","鵝蛋臉"],"cautions":["長臉"],"note":"黑髮大波浪光澤感強，捲度弧線柔化國字臉稜角，下段量感補足尖下巴"},{"id":"044","name":"深棕層次尾段大捲","tagline":"長髮 ・ 大捲 ・ 深棕","img":"044-深棕層次大捲-poster.jpg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["方臉","心形臉","圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"層次讓上段輕盈拉長、尾段大捲柔化下顎補量感，圓方臉都修得很自然"},{"id":"045","name":"深棕自然大捲","tagline":"長髮 ・ 大捲 ・ 深棕","img":"045-深棕自然大捲-poster.jpg","len":"長","diff":"低","cg":"棕","bleach":false,"fits":["鵝蛋臉","圓臉","方臉","心形臉"],"cautions":["長臉"],"note":"過下巴大捲縱向拉長輪廓，波浪弧度柔化下顎線，下段量感也修飾尖下巴"},{"id":"046","name":"黑色蓬鬆燙短鮑伯","tagline":"短髮 ・ 小捲 ・ 黑","img":"046-黑色蓬鬆短鮑伯-poster.jpg","len":"短","diff":"中","cg":"黑","bleach":false,"fits":["長臉","心形臉","鵝蛋臉"],"cautions":["圓臉"],"note":"齊下巴蓬鬆小捲做出橫向澎度，平衡臉部長度、幫尖下巴補量感"},{"id":"047","name":"橄欖棕微彎短髮","tagline":"短髮 ・ 微彎 ・ 橄欖灰棕","img":"047-橄欖棕微彎短髮-poster.jpg","len":"短","diff":"中","cg":"棕","bleach":false,"fits":["鵝蛋臉","長臉","心形臉","方臉"],"cautions":[],"note":"鎖骨上微彎線條橫向增量又柔化下顎，尾端弧度補足下巴量感，是安全大眾款"},{"id":"048","name":"霧灰挑染長波浪","tagline":"長髮 ・ 大捲 ・ 霧灰挑染","img":"048-霧灰挑染長波浪.jpeg","len":"長","diff":"高","cg":"特殊","bleach":true,"fits":["鵝蛋臉","圓臉","方臉","心形臉"],"cautions":["長臉"],"note":"挑染線條加長波浪拉出縱向感修飾圓潤，捲度同時軟化方正下顎線"},{"id":"050","name":"亞麻金齊平直髮","tagline":"中髮 ・ 直 ・ 亞麻奶茶金","img":"050-亞麻金齊平直髮-poster.jpg","len":"中","diff":"高","cg":"棕","bleach":false,"fits":["長臉","心形臉","鵝蛋臉"],"cautions":["方臉","圓臉"],"note":"齊平剪裁把重量留在下段，鎖骨上長度平衡長臉、幫尖下巴加份量"},{"id":"051","name":"墨綠黑大波浪","tagline":"長髮 ・ 大捲 ・ 墨綠黑","img":"051-墨綠黑大波浪-poster.jpg","len":"長","diff":"中","cg":"特殊","bleach":true,"fits":["圓臉","方臉","心形臉","鵝蛋臉"],"cautions":["長臉"],"note":"側分長瀏海搭大波浪拉長臉部比例，捲度弧線柔化腮幫與下顎"},{"id":"052","name":"藍黑層次長直髮","tagline":"長髮 ・ 直 ・ 藍黑","img":"052-藍黑層次長直髮-poster.jpg","len":"長","diff":"中","cg":"黑","bleach":false,"fits":["圓臉","鵝蛋臉","方臉"],"cautions":["長臉"],"note":"長直髮縱向線條顯瘦拉長，層次尾端輕盈不死板，順帶修飾下顎稜角"},{"id":"053","name":"奶茶淺棕長直髮","tagline":"長髮 ・ 直 ・ 奶茶淺棕","img":"053-奶茶淺棕長直髮-poster.jpg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"柔霧奶茶色長直髮垂墜順直，縱向延伸最能修飾圓臉的橫向圓潤感"},{"id":"054","name":"莓紅捲度鮑伯","tagline":"短髮 ・ 大捲 ・ 莓果紅棕","img":"054-莓紅捲度鮑伯.jpeg","len":"短","diff":"中","cg":"棕","bleach":false,"fits":["長臉","心形臉","鵝蛋臉"],"cautions":["圓臉"],"note":"齊下巴捲度鮑伯橫向澎度足，縮短臉部視覺長度、幫尖下巴補量"},{"id":"055","name":"黑棕層次波浪","tagline":"長髮 ・ 大捲 ・ 黑棕","img":"055-黑棕層次波浪-poster.jpg","len":"長","diff":"低","cg":"黑","bleach":false,"fits":["心形臉","圓臉","方臉","鵝蛋臉"],"cautions":["長臉"],"note":"八字瀏海修飾兩頰，層次波浪縱向拉長又柔化下顎，尖下巴也有量感支撐"},{"id":"056","name":"蜜糖橘棕大波浪","tagline":"長髮 ・ 大捲 ・ 蜜糖橘棕","img":"056-蜜糖橘棕大波浪.jpeg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["鵝蛋臉","圓臉","方臉","心形臉"],"cautions":["長臉"],"note":"過胸大波浪重量壓在下段，縱向拉長修飾圓潤，捲度軟化方正輪廓"},{"id":"057","name":"酒紅色長直髮","tagline":"長髮 ・ 直 ・ 酒紅棕","img":"057-酒紅長直髮.jpeg","len":"長","diff":"中","cg":"棕","bleach":false,"fits":["圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"酒紅長直髮線條俐落垂直，縱向延伸感強，最能把圓臉修飾得顯瘦立體"},{"id":"058","name":"黑棕層次大波浪","tagline":"長髮 ・ 大捲 ・ 黑棕","img":"058-黑棕層次大波浪-poster.jpg","len":"長","diff":"中","cg":"黑","bleach":false,"fits":["方臉","菱形臉","圓臉","鵝蛋臉"],"cautions":["長臉"],"note":"高層次大波浪在顴骨兩側帶出蓬度，弧線柔化顴骨與下顎的稜角感"},{"id":"059","name":"蜜桃粉裙襬染鮑伯","tagline":"短髮 ・ 直 ・ 蜜桃粉","img":"059-蜜桃粉裙襬染鮑伯-poster.jpg","len":"短","diff":"高","cg":"特殊","bleach":true,"fits":["長臉","心形臉","鵝蛋臉"],"cautions":["圓臉","方臉"],"note":"齊下巴直髮鮑伯重量集中下段，平衡長臉比例、幫尖下巴加澎度"},{"id":"060","name":"橄欖灰綠直髮","tagline":"中髮 ・ 直 ・ 亞麻灰綠","img":"060-橄欖灰綠直髮-poster.jpg","len":"中","diff":"中","cg":"棕","bleach":false,"fits":["鵝蛋臉","圓臉"],"cautions":["長臉"],"note":"中分橄欖灰綠直髮順直服貼，中線縱向延伸修飾兩頰圓潤、顯瘦有質感"}];
+var LINE_OA = '%40vok2785m';
+var answers = { face:null, len:null, cg:null, bleach:null, maint:null };
+
+function track(p) {
+  if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path:p, title:'', event:true });
+}
+
+document.querySelectorAll('.chips').forEach(function (group) {
+  var key = group.dataset.key;
+  group.querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+      chip.classList.add('on');
+      answers[key] = chip.dataset.v;
+      var done = Object.keys(answers).every(function (k) { return answers[k] !== null; });
+      document.getElementById('go').disabled = !done;
+    });
+  });
+});
+
+function score(it) {
+  var s = 0, max = 0, reasons = [];
+  max += 35;
+  if (answers.face === 'any') { s += 35; }
+  else if (it.fits.indexOf(answers.face) >= 0) { s += 35; reasons.push('修飾' + answers.face); }
+  max += 20;
+  if (answers.len === 'any' || it.len === answers.len) {
+    s += 20;
+    if (answers.len !== 'any') reasons.push({ '短':'短髮', '中':'中長', '長':'長髮' }[answers.len] + '長度');
+  }
+  max += 20;
+  if (answers.cg === 'any' || it.cg === answers.cg) {
+    s += 20;
+    if (answers.cg !== 'any') reasons.push({ '特殊':'特殊色系', '棕':'棕色霧感', '黑':'黑髮系' }[answers.cg]);
+  }
+  max += 15;
+  var m = answers.maint;
+  var maintOk = m === 'any' || m === '高' || it.diff === m || (m === '中' && it.diff === '低');
+  if (maintOk) {
+    s += 15;
+    if (m === '低') reasons.push('好整理');
+    else if (m === '中') reasons.push('整理難度剛好');
+  }
+  if (answers.bleach === 'no' && !it.bleach) reasons.push('免漂就能做');
+  return { pct: Math.round(s / max * 100), reasons: reasons };
+}
+
+function recommend() {
+  var pool = CATALOG.filter(function (it) {
+    if (answers.face !== 'any' && it.cautions.indexOf(answers.face) >= 0) return false;
+    if (answers.bleach === 'no' && it.bleach) return false;
+    return true;
+  });
+  var ranked = pool.map(function (it) {
+    var r = score(it);
+    return { it: it, pct: r.pct, reasons: r.reasons };
+  }).sort(function (a, b) { return b.pct - a.pct || Number(b.it.id) - Number(a.it.id); }).slice(0, 3);
+
+  var box = document.getElementById('cards');
+  box.innerHTML = '';
+  ranked.forEach(function (m, i) {
+    var it = m.it;
+    var reasons = m.reasons.length ? m.reasons : ['整體氛圍適合妳'];
+    var showNote = it.note && (answers.face === 'any' || it.fits.indexOf(answers.face) >= 0);
+    var msg = '哈囉 Zoey～我做了 AI 配對，想詢問 No.' + it.id + '「' + it.name + '」這款 ✂️';
+    var card = document.createElement('div');
+    card.className = 'card match';
+    card.innerHTML =
+      '<div class="thumb"><span class="rank">#' + (i + 1) + '</span><img src="../published/' + it.img + '" alt="No.' + it.id + ' ' + it.name + '" loading="lazy"></div>' +
+      '<div class="minfo"><div class="mno">No.' + it.id + '</div><p class="mname">' + it.name + '</p>' +
+      '<p class="mmeta">' + it.tagline + '</p>' +
+      '<div class="bar"><i style="width:' + m.pct + '%"></i></div><div class="barlab">適合度 ' + m.pct + '%</div>' +
+      '<ul class="reasons">' + reasons.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ul>' +
+      (showNote ? '<div class="snote"><b>設計師筆記</b>｜' + it.note + '</div>' : '') +
+      '<div class="book"><a href="https://line.me/R/oaMessage/' + LINE_OA + '/?' + encodeURIComponent(msg) + '" data-id="' + it.id + '">詢問這款 →</a></div></div>';
+    box.appendChild(card);
+  });
+
+  var faceLabel = answers.face === 'any' ? '' : answers.face + '、';
+  document.getElementById('rsub').textContent = '根據妳的' + faceLabel + '需求，從 ' + CATALOG.length + ' 件真實作品中配對（已自動排除不適合的款式）';
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('results').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  track('match-result-' + ranked.map(function (m) { return m.it.id; }).join('-'));
+}
+
+document.getElementById('go').addEventListener('click', recommend);
+document.getElementById('again').addEventListener('click', function () {
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('quiz').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  track('match-restart');
+});
+
+// LINE 詢問：LINE 內瀏覽器直接深層連結；其他瀏覽器走「看訊息→複製→開LINE」（同圖鑑機制）
+var IN_LINE = navigator.userAgent.indexOf(' Line/') >= 0;
+var IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+var toast = document.getElementById('toast'), toastTimer;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 4000);
+}
+var sheetbg = document.getElementById('sheetbg');
+var sheetmsg = document.getElementById('sheetmsg');
+var pendingHref = '';
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href^="https://line.me/R/oaMessage"]');
+  if (!a) return;
+  if (a.dataset.id) track('match-ask-' + a.dataset.id);
+  if (IN_LINE) return;
+  e.preventDefault();
+  pendingHref = a.href;
+  sheetmsg.textContent = decodeURIComponent(a.href.split('/?')[1] || '');
+  sheetbg.classList.add('show');
+});
+sheetbg.addEventListener('click', function (e) { if (e.target === sheetbg) sheetbg.classList.remove('show'); });
+document.getElementById('sheetgo').addEventListener('click', function () {
+  var msg = sheetmsg.textContent;
+  var go = function () {
+    sheetbg.classList.remove('show');
+    if (IS_MOBILE) {
+      showToast('訊息已複製 ✂️ 若 LINE 訊息欄是空的，長按貼上再送出');
+      location.href = pendingHref;
+    } else {
+      showToast('訊息已複製 ✂️ 到 LINE 訊息欄貼上送出');
+      window.open('https://lin.ee/KsgEJMw', '_blank');
+    }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(msg).then(go, go);
+  else go();
+});
+</script>
+</body>
+</html>
