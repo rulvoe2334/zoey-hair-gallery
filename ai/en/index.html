@@ -1,0 +1,242 @@
+<meta charset="utf-8">
+<script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+<title>A Hairstylist's AI Starter Kit | Zoey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://zoeyhair.com/ai/en/">
+<link rel="alternate" hreflang="zh-TW" href="https://zoeyhair.com/ai/">
+<link rel="alternate" hreflang="zh-HK" href="https://zoeyhair.com/ai/hk/">
+<link rel="alternate" hreflang="en" href="https://zoeyhair.com/ai/en/">
+<style>
+  :root {
+    --bg:#101116; --panel:#1a1c21; --panel2:#22242b; --line:#2c2f37;
+    --ink:#f0efec; --muted:#9a9aa0; --amber:#FFB02E; --amber-ink:#FFB02E;
+    --ok:#5fd48a; --chip-bg:rgba(255,176,46,.13);
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+      --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00;
+      --ok:#2e8b57; --chip-bg:rgba(160,106,0,.1); }
+  }
+  :root[data-theme="dark"] { --bg:#101116; --panel:#1a1c21; --panel2:#22242b; --line:#2c2f37;
+    --ink:#f0efec; --muted:#9a9aa0; --amber:#FFB02E; --amber-ink:#FFB02E;
+    --ok:#5fd48a; --chip-bg:rgba(255,176,46,.13); }
+  :root[data-theme="light"] { --bg:#faf8f3; --panel:#ffffff; --panel2:#f3f0e9; --line:#e5e1d6;
+    --ink:#1d1c1a; --muted:#6d6a63; --amber:#FFB02E; --amber-ink:#a06a00;
+    --ok:#2e8b57; --chip-bg:rgba(160,106,0,.1); }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.7; font-size:16px; padding:0 20px 80px; }
+  .wrap { max-width:640px; margin:0 auto; }
+
+  header { padding:56px 0 36px; }
+  .lang-switch { font-size:12px; margin-bottom:18px; display:flex; gap:8px; }
+  .lang-switch a { color:var(--muted); text-decoration:none; border:1px solid var(--line);
+    border-radius:999px; padding:5px 14px; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { border-color:var(--amber); color:var(--ink); outline:none; }
+  .eyebrow { font-size:12px; letter-spacing:.22em; color:var(--amber-ink); font-weight:700; margin-bottom:14px; }
+  h1 { font-size:34px; line-height:1.25; font-weight:800; text-wrap:balance; margin-bottom:14px; }
+  h1 em { font-style:normal; color:var(--amber-ink); }
+  .lede { color:var(--muted); font-size:15px; }
+  .meta-hook { margin-top:22px; background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--amber);
+    border-radius:12px; padding:14px 16px; font-size:14px; }
+  .meta-hook b { color:var(--amber-ink); }
+
+  .toc { display:flex; flex-direction:column; gap:8px; margin:8px 0 40px; }
+  .toc a { display:flex; gap:12px; align-items:baseline; text-decoration:none; color:var(--ink);
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 16px; font-size:15px; }
+  .toc a:hover, .toc a:focus-visible { border-color:var(--amber); outline:none; }
+  .toc .no { font-variant-numeric:tabular-nums; color:var(--amber-ink); font-weight:800; font-size:13px; white-space:nowrap; }
+  .toc .est { margin-left:auto; font-size:12px; color:var(--muted); white-space:nowrap; }
+
+  section { margin-bottom:52px; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .sec-head .no { color:var(--amber-ink); font-weight:800; font-size:14px; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  h2 { font-size:23px; font-weight:800; line-height:1.3; text-wrap:balance; }
+  .sec-sub { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .sec-sub b { color:var(--ink); }
+
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:14px; }
+  .card h3 { font-size:16px; font-weight:700; margin-bottom:10px; }
+
+  ol.steps { list-style:none; counter-reset:st; display:flex; flex-direction:column; gap:14px; }
+  ol.steps li { counter-increment:st; display:flex; gap:14px; font-size:15px; }
+  ol.steps li::before { content:counter(st); flex:0 0 26px; height:26px; border-radius:50%;
+    background:var(--chip-bg); color:var(--amber-ink); font-weight:800; font-size:13px;
+    display:flex; align-items:center; justify-content:center; margin-top:3px; font-variant-numeric:tabular-nums; }
+  ol.steps .path { font-weight:700; }
+  ol.steps small { display:block; color:var(--muted); font-size:13px; margin-top:2px; }
+
+  .chat { display:flex; flex-direction:column; gap:8px; background:var(--panel2); border-radius:14px; padding:16px; margin:14px 0 4px; }
+  .chat .lbl { font-size:11px; color:var(--muted); text-align:center; margin-bottom:2px; }
+  .bub { max-width:85%; padding:9px 13px; border-radius:15px; font-size:14px; line-height:1.6; }
+  .bub.them { background:var(--panel); border:1px solid var(--line); border-bottom-left-radius:5px; align-self:flex-start; }
+  .bub.me { background:var(--chip-bg); border:1px solid var(--amber); border-bottom-right-radius:5px; align-self:flex-end; }
+  .bub .tag { display:block; font-size:10px; color:var(--amber-ink); font-weight:700; margin-bottom:3px; }
+
+  .prompt { position:relative; background:var(--panel2); border:1px dashed var(--line); border-radius:12px;
+    padding:16px 16px 40px; font-size:14px; line-height:1.7; margin:12px 0 4px; white-space:pre-wrap; }
+  .prompt .cp { position:absolute; right:10px; bottom:8px; border:1px solid var(--line); background:var(--panel);
+    color:var(--amber-ink); font-size:12px; font-weight:700; border-radius:8px; padding:4px 12px; cursor:pointer; font-family:inherit; }
+  .prompt .cp:focus-visible { outline:2px solid var(--amber); }
+
+  .tip { display:flex; gap:10px; font-size:14px; color:var(--muted); background:var(--panel); border:1px solid var(--line);
+    border-radius:12px; padding:12px 14px; margin-top:10px; }
+  .tip::before { content:"TIP"; flex:0 0 auto; color:var(--amber-ink); font-weight:800; font-size:12px; margin-top:2px; letter-spacing:.1em; }
+  .tip b { color:var(--ink); }
+
+  .tools { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px; }
+  .tool { font-size:13px; border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:5px 14px; color:var(--muted); }
+  .tool b { color:var(--ink); font-weight:700; }
+
+  details { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px; }
+  summary { cursor:pointer; font-weight:700; font-size:15px; }
+  summary:focus-visible { outline:2px solid var(--amber); border-radius:6px; }
+  details p { margin-top:10px; font-size:14px; color:var(--muted); }
+  details b { color:var(--ink); }
+
+  .done-strip { display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ok); font-weight:700;
+    border:1px solid var(--ok); border-radius:12px; padding:12px 16px; background:transparent; margin-top:14px; }
+
+  .cta { background:var(--panel); border:1.5px solid var(--amber); border-radius:18px; padding:26px 22px; text-align:center; }
+  .cta h2 { margin-bottom:8px; }
+  .cta p { color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-block; text-decoration:none; font-weight:800; font-size:15px; border-radius:999px; padding:12px 26px; }
+  .btn.main { background:var(--amber); color:#181818; }
+  .btn.ghost { border:1.5px solid var(--line); color:var(--ink); }
+  .btn:focus-visible { outline:2px solid var(--amber-ink); outline-offset:2px; }
+
+  footer { margin-top:44px; text-align:center; font-size:12px; color:var(--muted); }
+  @media (prefers-reduced-motion:no-preference) {
+    .toc a, .btn { transition:transform .15s ease, border-color .15s ease; }
+    .toc a:hover { transform:translateX(3px); }
+    .btn:hover { transform:translateY(-2px); }
+  }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="lang-switch"><a href="/ai/">中文版 →</a><a href="/ai/hk/">廣東話版 →</a></div>
+  <div class="eyebrow">ZOEY · A HAIRSTYLIST'S AI NOTES</div>
+  <h1>Let <em>AI</em> handle<br>the repetitive stuff</h1>
+  <p class="lede">3 starter moves you can pull off with zero coding — the exact ones I use in my own salon every day, and every one of them can start at $0.</p>
+  <div class="meta-hook">If a bot sent you this page 0.5 seconds after you commented "AI" — <b>that bot itself is what Lesson 1 teaches</b>. Keep reading: 20 minutes from now, your account can do the same thing.</div>
+</header>
+
+<nav class="toc">
+  <a href="#c1"><span class="no">Lesson 1</span>Auto-reply to IG comments<span class="est">⏱ 20 min</span></a>
+  <a href="#c2"><span class="no">Lesson 2</span>AI writes your captions &amp; scripts<span class="est">⏱ 10 min</span></a>
+  <a href="#c3"><span class="no">Lesson 3</span>Auto-captions &amp; cutting filler words<span class="est">⏱ 30 min</span></a>
+</nav>
+
+<section id="c1">
+  <div class="sec-head"><span class="no">Lesson 1</span><h2>Auto-reply to IG comments</h2></div>
+  <p class="sec-sub">Uses Meta's <b>official, built-in, free</b> feature — no third-party apps, no risk of getting your account banned.</p>
+
+  <div class="chat">
+    <div class="lbl">What it looks like when you're done</div>
+    <div class="bub them">AI</div>
+    <div class="bub me"><span class="tag">⚡ Auto-reply</span>Hey! Here's the full guide 👇<br>(whatever link you want to share)</div>
+  </div>
+
+  <div class="card">
+    <h3>Setup steps</h3>
+    <ol class="steps">
+      <li><span>Log in at <span class="path">business.facebook.com</span> → open "Inbox" in the left menu<small>Your IG needs to be a professional account, linked to a Facebook Page</small></span></li>
+      <li><span>Click "Automations" → create an automation → choose "<span class="path">Comment to message</span>"</span></li>
+      <li><span>Set your trigger keyword<small>Use a single word — like AI, gallery, or price. Don't use a whole sentence</small></span></li>
+      <li><span>Write two pieces of text: the <span class="path">DM</span> (your link + one open question) and the <span class="path">public reply</span><small>The open question matters: once they reply, it becomes a real conversation — and the algorithm rewards that</small></span></li>
+      <li><span>Turn it on, then test it once with a second account</span></li>
+    </ol>
+  </div>
+  <div class="tip">People often can't find the DM — it lands in their "<b>Message requests</b>" folder. In your public reply, add "check your message requests if you don't see it."</div>
+  <div class="done-strip">✓ After this lesson, every post you publish catches inquiries automatically</div>
+</section>
+
+<section id="c2">
+  <div class="sec-head"><span class="no">Lesson 2</span><h2>AI writes your captions &amp; scripts</h2></div>
+  <p class="sec-sub">Any of these tools works, and <b>the free tier is enough</b>. The tool isn't the point — how you brief it is.</p>
+  <div class="tools">
+    <span class="tool"><b>Claude</b> (what I use)</span>
+    <span class="tool"><b>ChatGPT</b></span>
+    <span class="tool"><b>Gemini</b></span>
+  </div>
+
+  <div class="card">
+    <h3>Copy this prompt (example: a new-work post)</h3>
+    <div class="prompt" id="p1">You are my IG copywriter. I'm a hair stylist; most of my clients are women aged 25–45 with office jobs.
+
+Write 3 versions of an IG caption for my latest work:
+- The hair: milk-tea brown, shoulder-length cut (swap in yours)
+- The client's worry: warm skin tone, fine/thin hair (swap in yours)
+- My voice: like chatting with a friend — no salesy words, no "hey babes"
+- Always end with: Comment "gallery" and I'll DM you my portfolio
+
+Keep each under 80 words, and give me 3 different opening hooks first.<button class="cp" data-t="p1">Copy</button></div>
+  </div>
+  <div class="tip">Paste <b>your 2 best past posts</b> into the chat so it "learns your voice" — the output will sound more and more like you.</div>
+  <div class="done-strip">✓ After this lesson, a caption takes 5 minutes instead of 40</div>
+</section>
+
+<section id="c3">
+  <div class="sec-head"><span class="no">Lesson 3</span><h2>Auto-captions &amp; cutting filler words</h2></div>
+  <p class="sec-sub">Two routes. Start with the phone route — only consider the computer route <b>after 10+ videos</b>.</p>
+
+  <div class="card">
+    <h3>Phone route (free · fastest to learn)</h3>
+    <ol class="steps">
+      <li><span>CapCut → import your video → "<span class="path">Auto captions</span>"<small>Recognition is very accurate — you'll only fix 2–3 words by hand</small></span></li>
+      <li><span>Listen through once and <span class="path">delete every chunk</span> of "so, um, like, you know…"<small>Cutting filler words instantly tightens the whole video's pacing</small></span></li>
+      <li><span>Don't use the default caption style: white text + dark outline, with keywords in one consistent brand color</span></li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>Computer route (how I made my video)</h3>
+    <p style="font-size:14px; color:var(--muted);">Use Whisper (free, open-source) to transcribe the video, hand the transcript to AI to flag filler words and dead air with timestamps, then auto-export the final cut — even the caption animations were laid out by AI. This route takes some computer skills; if you want to learn it, tell me on IG — if enough people ask, I'll write the next guide.</p>
+  </div>
+  <div class="tip">The voiceover in my video is also AI, generated with my own voice (it runs locally — my voice never gets uploaded). That's an advanced topic — <b>comment "voice" if you want me to cover it</b>.</div>
+  <div class="done-strip">✓ After this lesson, editing one Reel takes 20 minutes instead of 2 hours</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>FAQ</h2></div>
+  <details>
+    <summary>Does any of this cost money?</summary>
+    <p>Everything on this page is <b>completely free</b>: Meta's auto-reply is built into their official tools, and the free tiers of the AI tools and CapCut are plenty. Once it becomes a habit, you can think about paid plans — no rush.</p>
+  </details>
+  <details>
+    <summary>Will auto-replies get my IG account banned?</summary>
+    <p>No. This is an <b>official feature inside Meta's own dashboard</b> — completely different from third-party plugins. What you should be careful with are sketchy third-party tools: never casually authorize them on your account.</p>
+  </details>
+  <details>
+    <summary>I'm terrible with computers. Can I really do this?</summary>
+    <p>Lessons 1 and 2 can be done <b>entirely on your phone</b>. I can't code either — I get everything done by "talking" to AI. The only skill you need to practice is describing what you want, clearly.</p>
+  </details>
+</section>
+
+<section class="cta">
+  <h2>Stuck?</h2>
+  <p>Hit a wall following along, or want to know which step your salon should start with — just message me.</p>
+  <div class="btns">
+    <a class="btn main" href="https://www.instagram.com/zoeyyyyyy227/">DM me on Instagram</a>
+    <a class="btn ghost" href="https://lin.ee/KsgEJMw">Add me on LINE</a>
+  </div>
+</section>
+
+<footer>Zoey · Hairstylist in Taichung, Taiwan — this page (and the bot that sent it) was built with exactly the methods above.</footer>
+</div>
+
+<script>
+document.querySelectorAll('.cp').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const node = document.getElementById(btn.dataset.t).cloneNode(true);
+    node.querySelector('.cp').remove();
+    navigator.clipboard.writeText(node.textContent.trim()).then(() => {
+      btn.textContent = 'Copied ✓';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+    });
+  });
+});
+</script>
