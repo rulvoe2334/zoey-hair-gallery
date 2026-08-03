@@ -152,7 +152,7 @@
   <div style="text-align:center"><button class="btn" id="sheetgo">複製訊息・開啟 LINE</button></div>
 </div></div>
 <div class="sheetbg" id="savebg"><div class="sheet">
-  <h3>不用截圖，直接存</h3>
+  <h3 id="savetitle">不用截圖，直接存</h3>
   <p class="savehint" id="savehint">手指按住下面這張卡不放 → 點「加入照片」，就直接存進相簿了</p>
   <div class="cardwrap"><img id="cardimg" alt="配對結果卡"></div>
   <div style="text-align:center"><a class="btn" id="carddl">下載結果卡</a></div>
@@ -352,21 +352,33 @@ function drawCard(photo, no, name, tagline) {
   return cv;
 }
 
+function saveCardError(err) {
+  savebg.classList.remove('show');
+  showToast('存卡出錯：' + (err && err.message ? err.message : err));
+}
 document.addEventListener('click', function (e) {
   var b = e.target.closest('button[data-save]');
   if (!b) return;
   track('match-save-' + b.dataset.save);
-  var photo = new Image();
-  photo.onload = function () {
-    var cv = drawCard(photo, b.dataset.save, b.dataset.name, b.dataset.tagline);
-    var url = cv.toDataURL('image/jpeg', 0.92);
-    cardimg.src = url;
-    carddl.href = url;
-    carddl.setAttribute('download', 'zoey-hair-match-' + b.dataset.save + '.jpg');
+  try {
+    var savetitle = document.getElementById('savetitle');
+    cardimg.removeAttribute('src');
+    savetitle.textContent = '卡片製作中…';
     savebg.classList.add('show');
-  };
-  photo.onerror = function () { showToast('圖片載入失敗，再點一次試試'); };
-  photo.src = '../published/' + b.dataset.img;
+    var photo = new Image();
+    photo.onload = function () {
+      try {
+        var cv = drawCard(photo, b.dataset.save, b.dataset.name, b.dataset.tagline);
+        var url = cv.toDataURL('image/jpeg', 0.92);
+        cardimg.src = url;
+        carddl.href = url;
+        carddl.setAttribute('download', 'zoey-hair-match-' + b.dataset.save + '.jpg');
+        savetitle.textContent = '不用截圖，直接存';
+      } catch (err) { saveCardError(err); }
+    };
+    photo.onerror = function () { saveCardError('卡面照片載入失敗，再點一次試試'); };
+    photo.src = '../published/' + b.dataset.img;
+  } catch (err) { saveCardError(err); }
 });
 </script>
 </body>
