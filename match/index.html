@@ -64,9 +64,15 @@
   .snote { font-size:12.5px; color:var(--ink2); background:#fbf7f4; border-left:3px solid var(--hairline);
     padding:7px 11px; margin-top:10px; border-radius:0 8px 8px 0; line-height:1.7; }
   .snote b { color:var(--accent); font-weight:600; }
-  .book { margin-top:12px; }
+  .book { margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
   .book a { font-size:13px; letter-spacing:.1em; color:#fff; background:var(--deep); text-decoration:none;
     box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35); padding:8px 18px; border-radius:999px; display:inline-block; }
+  .book .save { font-size:13px; letter-spacing:.1em; color:var(--deep); background:var(--card);
+    border:1px solid var(--deep); padding:8px 18px; border-radius:999px; font-family:inherit; cursor:pointer; }
+  .cardwrap { max-height:56vh; overflow:auto; margin-bottom:14px; }
+  .cardwrap img { width:100%; display:block; border-radius:12px; border:1px solid var(--line); }
+  .savehint { font-size:13.5px; background:var(--wash); border:1px dashed var(--hairline);
+    border-radius:12px; padding:10px 14px; margin-bottom:12px; }
   footer { text-align:center; color:var(--ink3); font-size:12px; letter-spacing:.08em; margin-top:44px; }
   .sheetbg { position:fixed; inset:0; background:rgba(43,35,38,.45); z-index:60;
     display:flex; align-items:flex-end; justify-content:center;
@@ -124,7 +130,7 @@
     <div class="q"><div class="qnum">Q5 / 5</div><div class="qtitle">平常願意花多少心力整理？</div>
       <div class="chips" data-key="maint">
         <span class="chip" data-v="低">越省事越好</span><span class="chip" data-v="中">適中</span>
-        <span class="chip" data-v="高">願意精緻打理</span><span class="chip" data-v="any">沒差</span>
+        <span class="chip" data-v="高">願意精緻打理</span>
       </div></div>
     <div class="cta"><button class="btn" id="go" disabled>看我的配對結果</button></div>
   </div>
@@ -144,6 +150,12 @@
   <h3>傳這句給 Zoey 就可以了</h3>
   <div class="sheetmsg" id="sheetmsg"></div>
   <div style="text-align:center"><button class="btn" id="sheetgo">複製訊息・開啟 LINE</button></div>
+</div></div>
+<div class="sheetbg" id="savebg"><div class="sheet">
+  <h3>不用截圖，直接存</h3>
+  <p class="savehint" id="savehint">手指按住下面這張卡不放 → 點「加入照片」，就直接存進相簿了</p>
+  <div class="cardwrap"><img id="cardimg" alt="配對結果卡"></div>
+  <div style="text-align:center"><a class="btn" id="carddl">下載結果卡</a></div>
 </div></div>
 <div class="toast" id="toast"></div>
 
@@ -223,7 +235,7 @@ function recommend() {
       '<div class="bar"><i style="width:' + m.pct + '%"></i></div><div class="barlab">適合度 ' + m.pct + '%</div>' +
       '<ul class="reasons">' + reasons.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ul>' +
       (showNote ? '<div class="snote"><b>設計師筆記</b>｜' + it.note + '</div>' : '') +
-      '<div class="book"><a href="https://line.me/R/oaMessage/' + LINE_OA + '/?' + encodeURIComponent(msg) + '" data-id="' + it.id + '">詢問這款 →</a></div></div>';
+      '<div class="book"><a href="https://line.me/R/oaMessage/' + LINE_OA + '/?' + encodeURIComponent(msg) + '" data-id="' + it.id + '">詢問這款 →</a><button class="save" data-save="' + it.id + '" data-img="' + it.img + '" data-name="' + it.name + '" data-tagline="' + it.tagline + '">點此存入珍藏</button></div></div>';
     box.appendChild(card);
   });
 
@@ -281,6 +293,80 @@ document.getElementById('sheetgo').addEventListener('click', function () {
   };
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(msg).then(go, go);
   else go();
+});
+
+// 儲存結果卡：canvas 畫卡 → 手機長按存圖、桌機下載（LINE 詢問機制零改動）
+var savebg = document.getElementById('savebg');
+var cardimg = document.getElementById('cardimg');
+var carddl = document.getElementById('carddl');
+savebg.addEventListener('click', function (e) { if (e.target === savebg) savebg.classList.remove('show'); });
+
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawCard(photo, no, name, tagline) {
+  var W = 1000, H = 1720;
+  var cv = document.createElement('canvas');
+  cv.width = W; cv.height = H;
+  var ctx = cv.getContext('2d');
+  ctx.fillStyle = '#faf8f6'; ctx.fillRect(0, 0, W, H);
+  var px = 60, py = 60, pw = 880, ph = 1100;
+  var sc = Math.max(pw / photo.width, ph / photo.height);
+  ctx.save(); rrect(ctx, px, py, pw, ph, 28); ctx.clip();
+  ctx.drawImage(photo, px + (pw - photo.width * sc) / 2, py, photo.width * sc, photo.height * sc);
+  ctx.restore();
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#8e4a5c';
+  ctx.font = '600 24px "Avenir Next",sans-serif';
+  ctx.fillText('A I   H A I R   M A T C H', W / 2, 1235);
+  ctx.fillStyle = '#2b2326';
+  var title = 'No.' + no + '　' + name;
+  var fs = 46;
+  ctx.font = '700 ' + fs + 'px "Songti TC","Noto Serif TC",serif';
+  while (ctx.measureText(title).width > 860 && fs > 28) {
+    fs -= 2;
+    ctx.font = '700 ' + fs + 'px "Songti TC","Noto Serif TC",serif';
+  }
+  ctx.fillText(title, W / 2, 1318);
+  ctx.fillStyle = '#5f5659';
+  ctx.font = '26px "Songti TC","Noto Serif TC",serif';
+  ctx.fillText(tagline, W / 2, 1378);
+  ctx.strokeStyle = '#d8c3c9'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(220, 1430); ctx.lineTo(780, 1430); ctx.stroke();
+  ctx.fillStyle = '#6f3648';
+  ctx.font = '700 40px "Songti TC","Noto Serif TC",serif';
+  ctx.fillText('拿這張來店裡直接給我看', W / 2, 1518);
+  ctx.fillStyle = '#5f5659';
+  ctx.font = '600 26px "Avenir Next",sans-serif';
+  ctx.fillText('IG @zoeyyyyyy227　·　LINE 預約', W / 2, 1600);
+  ctx.fillStyle = '#8f8487';
+  ctx.font = '22px "Avenir Next",sans-serif';
+  ctx.fillText('zoeyhair.com/match', W / 2, 1662);
+  return cv;
+}
+
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('button[data-save]');
+  if (!b) return;
+  track('match-save-' + b.dataset.save);
+  var photo = new Image();
+  photo.onload = function () {
+    var cv = drawCard(photo, b.dataset.save, b.dataset.name, b.dataset.tagline);
+    var url = cv.toDataURL('image/jpeg', 0.92);
+    cardimg.src = url;
+    carddl.href = url;
+    carddl.setAttribute('download', 'zoey-hair-match-' + b.dataset.save + '.jpg');
+    savebg.classList.add('show');
+  };
+  photo.onerror = function () { showToast('圖片載入失敗，再點一次試試'); };
+  photo.src = '../published/' + b.dataset.img;
 });
 </script>
 </body>
