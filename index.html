@@ -301,6 +301,19 @@
       letter-spacing:.1em; }
     .fline:active { transform:scale(.95); }
   }
+  .matchbn { display:block; margin:26px auto 4px; max-width:560px; text-align:center;
+    background:linear-gradient(120deg,var(--deep),var(--accent)); color:#fff; text-decoration:none;
+    border-radius:18px; padding:18px 22px; box-shadow:0 10px 26px rgba(111,54,72,.25);
+    position:relative; overflow:hidden; }
+  .matchbn::after { content:""; position:absolute; inset:5px; border:1px solid rgba(255,255,255,.4);
+    border-radius:14px; pointer-events:none; }
+  .matchbn .mbe { display:block; font-family:"Avenir Next",sans-serif; font-size:11px; letter-spacing:.4em; opacity:.85; }
+  .matchbn b { display:block; font-size:20px; letter-spacing:.14em; margin:6px 0 4px; }
+  .matchbn .mbs { display:block; font-size:13px; letter-spacing:.06em; opacity:.92; }
+  .matchbn:active { transform:scale(.98); }
+  .dmatch { display:block; text-align:center; margin-top:10px; font-size:13.5px; letter-spacing:.08em;
+    color:var(--deep); text-decoration:none; border:1px solid var(--hairline); border-radius:999px;
+    padding:10px 16px; background:var(--wash); }
 </style>
 <script data-goatcounter="https://zoeyyyyyyhair.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -338,6 +351,12 @@
   <span>ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;ZOEY HAIR GALLERY&#8195;✦&#8195;<i>Beauty begins with hair.</i>&#8195;✦&#8195;TAICHUNG&#8195;✦&#8195;預約制髮型設計&#8195;✦&#8195;</span>
 </div></div>
 <div class="wrap">
+
+  <a class="matchbn" href="match/" id="matchbn">
+    <span class="mbe">AI HAIR MATCH</span>
+    <b>AI 幫妳配髮型</b>
+    <span class="mbs">回答 5 個問題，從 51 件真實作品裡找出適合妳的 →</span>
+  </a>
 
   <div class="filters" id="filters">
     <button data-f="all" class="on">全部</button>
@@ -713,6 +732,7 @@
     <h3 id="dtitle"></h3>
     <div class="dtags" id="dtagline"></div>
     <a class="go" id="dask" href="#">用 LINE 詢問這款</a>
+    <a class="dmatch" href="match/" id="dmatch">不確定適不適合？讓 AI 幫妳配 →</a>
   </div>
 </div>
 <div class="sheetbg" id="sheetbg">
@@ -1038,6 +1058,11 @@
   }
   document.addEventListener('contextmenu', e => { if (e.target.closest('.imgbox, .dmedia')) e.preventDefault(); });
   document.addEventListener('dragstart', e => e.preventDefault());
+  // AI 配對入口點擊事件（方針 #16-r1）
+  document.addEventListener('click', e => {
+    const m = e.target.closest('#matchbn, #dmatch');
+    if (m) track(m.id === 'matchbn' ? 'entry-match-home' : 'entry-match-detail');
+  });
 </script>
 </body>
 </html>
