@@ -377,7 +377,7 @@
     <a class="hscroll" href="#grid">DISCOVER ↓</a>
   </div>
   <div class="hright">
-    <div class="hslide on" data-dur="19000"><video src="published/hero-fw2026-plaster.mp4" poster="published/hero-fw2026-plaster-poster.jpg" muted loop playsinline></video><a class="hcap" href="guide/fw2026/">2026秋冬髮色指南</a><span class="haitag">AI 生成影像</span></div>
+    <div class="hslide on" data-dur="19000" data-mcut="12.2"><video src="published/hero-fw2026-plaster.mp4" poster="published/hero-fw2026-plaster-poster.jpg" muted loop playsinline></video><a class="hcap" href="guide/fw2026/">2026秋冬髮色指南</a><span class="haitag">AI 生成影像</span></div>
     <div class="hslide"><video data-hsrc="published/hero-069.mp4" preload="none" poster="published/069-酒紅棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-069">2026秋冬・流行款　No.069 酒紅棕長直髮</a></div>
     <div class="hslide"><video data-hsrc="published/hero-072.mp4" preload="none" poster="published/072-薄荷米棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-072">2026秋冬・流行款　No.072 薄荷米棕長直髮</a></div>
     <div class="hslide"><video data-hsrc="published/078-短髮線條感微捲.mp4" preload="none" poster="published/078-短髮線條感微捲-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-078">2026秋冬・流行款　No.078 短髮線條感微捲</a></div>
@@ -1160,6 +1160,8 @@
       if (!v) return;
       if (hWide.matches ? i < 3 : i === n) {
         if (!v.src && v.dataset.hsrc) v.src = v.dataset.hsrc;
+        // 手機版（方針 #49）：有 data-mcut 的那支每次輪到都從頭播
+        if (!hWide.matches && s.dataset.mcut) { try { v.currentTime = 0; } catch (e) {} }
         v.play().catch(function () {});
       } else { v.pause(); }
     });
@@ -1169,8 +1171,17 @@
     showHero(0);
     // 每支讀自己的 data-dur（毫秒），沒寫就 6000
     (function next() {
-      setTimeout(() => { hIdx = (hIdx + 1) % hslides.length; showHero(hIdx); next(); },
-        Number(hslides[hIdx].dataset.dur) || 6000);
+      const s = hslides[hIdx], v = s.querySelector('video');
+      const go = () => { hIdx = (hIdx + 1) % hslides.length; showHero(hIdx); next(); };
+      const dur = Number(s.dataset.dur) || 6000;
+      // 手機版（方針 #49）：有 data-mcut（秒）的那支，影片播到該秒數就換下一支；影片沒在播時以 data-dur 保底
+      const cut = (!hWide.matches && v && s.dataset.mcut) ? Number(s.dataset.mcut) : 0;
+      if (!cut) { setTimeout(go, dur); return; }
+      let done = false;
+      const fin = () => { if (done) return; done = true; v.removeEventListener('timeupdate', onT); clearTimeout(cap); go(); };
+      const onT = () => { if (v.currentTime >= cut) fin(); };
+      const cap = setTimeout(fin, dur);
+      v.addEventListener('timeupdate', onT);
     })();
     if (hWide.addEventListener) hWide.addEventListener('change', () => showHero(hIdx));
   }
