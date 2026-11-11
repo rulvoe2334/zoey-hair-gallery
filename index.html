@@ -54,6 +54,8 @@
     background:rgba(43,35,38,.45); padding:7px 13px; backdrop-filter:blur(5px);
     -webkit-backdrop-filter:blur(5px); }
   .hcap:hover { background:rgba(43,35,38,.7); }
+  .haitag { position:absolute; left:14px; top:50px; z-index:2; font-family:"PingFang TC",sans-serif;
+    font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.75); pointer-events:none; }
   .hdots { position:absolute; left:50%; transform:translateX(-50%); bottom:16px; z-index:2;
     display:flex; gap:8px; }
   .hdots span { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.5);
@@ -301,6 +303,40 @@
       letter-spacing:.1em; }
     .fline:active { transform:scale(.95); }
   }
+  /* 電腦版頁首（方針 #48）：滿版三支並排，左=流行款1、中=主題片、右=流行款2，文字置中疊在中欄 */
+  @media (min-width:761px) {
+    .hero { display:block; position:relative; min-height:calc(96svh - 53px); overflow:hidden; max-width:none; }
+    .hright { position:absolute; inset:0; display:flex; }
+    .hright::before { content:""; position:absolute; inset:0; z-index:1;
+      background:radial-gradient(ellipse 46% 70% at 50% 50%, rgba(43,35,38,.62) 0%,
+        rgba(43,35,38,.38) 55%, rgba(43,35,38,.10) 100%); }
+    .hslide { position:relative; inset:auto; flex:1; opacity:1 !important; }
+    .hslide:nth-of-type(1) { order:2; }
+    .hslide:nth-of-type(2) { order:1; }
+    .hslide:nth-of-type(3) { order:3; }
+    .hslide:nth-of-type(4) { display:none; }
+    .hslide video, .hslide img { object-position:center 40%; }
+    .hleft { position:relative; z-index:2; min-height:calc(96svh - 53px); justify-content:center;
+      align-items:center; text-align:center; padding:0 24px; }
+    .hero .eyebrow { color:#f0d6de; }
+    .hero h1 { color:#fff; text-shadow:0 2px 26px rgba(43,35,38,.5); }
+    .hen { color:#f0d6de; }
+    .hero .sub { color:rgba(255,255,255,.92); text-shadow:0 1px 12px rgba(43,35,38,.4); }
+    .cta .ig { border-color:rgba(255,255,255,.9); color:#fff; }
+    .hscroll { color:rgba(255,255,255,.75); }
+    .hcap { left:14px; right:auto; top:14px; bottom:auto; font-size:11px; padding:6px 10px; }
+    .haitag { left:auto; top:auto; right:12px; bottom:34px; }
+    .hdots { display:none; }
+  }
+  /* 電腦矮視窗保護（方針 #48 步驟 4h）：視窗高度不足時縮字與間距，文字不被切到 */
+  @media (min-width:761px) and (max-height:700px) {
+    .hleft { padding:64px 24px 24px; }
+    .hero h1 { font-size:min(clamp(46px,6.4vw,92px), 11svh); margin-top:14px; }
+    .hen { margin-top:10px; }
+    .hero .sub { margin-top:14px; }
+    .hero .cta { margin-top:20px; }
+    .hscroll { margin-top:24px; }
+  }
   .matchbn { display:block; margin:26px auto 4px; max-width:560px; text-align:center;
     background:linear-gradient(120deg,var(--deep),var(--accent)); color:#fff; text-decoration:none;
     border-radius:18px; padding:18px 22px; box-shadow:0 10px 26px rgba(111,54,72,.25);
@@ -339,10 +375,11 @@
     <a class="hscroll" href="#grid">DISCOVER ↓</a>
   </div>
   <div class="hright">
-    <div class="hslide on"><video src="published/069-酒紅棕長直髮.mp4" preload="metadata" poster="published/069-酒紅棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-069">2026秋冬・流行款　No.069 酒紅棕長直髮</a></div>
-    <div class="hslide"><video data-hsrc="published/072-薄荷米棕長直髮.mp4" preload="none" poster="published/072-薄荷米棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-072">2026秋冬・流行款　No.072 薄荷米棕長直髮</a></div>
+    <div class="hslide on" data-dur="19000"><video src="published/hero-fw2026-plaster.mp4" poster="published/hero-fw2026-plaster-poster.jpg" muted loop playsinline></video><a class="hcap" href="guide/fw2026/">2026秋冬髮色指南</a><span class="haitag">AI 生成影像</span></div>
+    <div class="hslide"><video data-hsrc="published/hero-069.mp4" preload="none" poster="published/069-酒紅棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-069">2026秋冬・流行款　No.069 酒紅棕長直髮</a></div>
+    <div class="hslide"><video data-hsrc="published/hero-072.mp4" preload="none" poster="published/072-薄荷米棕長直髮-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-072">2026秋冬・流行款　No.072 薄荷米棕長直髮</a></div>
     <div class="hslide"><video data-hsrc="published/078-短髮線條感微捲.mp4" preload="none" poster="published/078-短髮線條感微捲-poster.jpg" muted loop playsinline></video><a class="hcap" href="#card-078">2026秋冬・流行款　No.078 短髮線條感微捲</a></div>
-    <div class="hdots"><span class="on"></span><span></span><span></span></div>
+    <div class="hdots"><span class="on"></span><span></span><span></span><span></span></div>
   </div>
   <div class="hvert">ZOEY ・ TAICHUNG ・ HAIR DESIGN</div>
 </header>
@@ -993,7 +1030,8 @@
     detailbg.classList.remove('show');
     dmedia.innerHTML = '';
     // 恢復畫面內卡片影片的播放（開檢視時被暫停）
-    document.querySelectorAll('.item video[src], .hslide.on video[src]').forEach(x => {
+    const hSel = window.matchMedia('(min-width:761px)').matches ? '.hslide video[src]' : '.hslide.on video[src]';
+    document.querySelectorAll('.item video[src], ' + hSel).forEach(x => {
       const r = x.getBoundingClientRect();
       if (r.bottom > 0 && r.top < innerHeight) x.play().catch(function () {});
     });
@@ -1110,13 +1148,15 @@
   // 首屏趨勢輪播：淡入淡出、只播放當前那支影片（省流量）
   const hslides = document.querySelectorAll('.hslide');
   const hdots = document.querySelectorAll('.hdots span');
+  // 電腦版（方針 #48）：前三支並排同時播放，第四支不顯示也不載入
+  const hWide = window.matchMedia('(min-width:761px)');
   let hIdx = 0;
   function showHero(n) {
     hslides.forEach((s, i) => {
       s.classList.toggle('on', i === n);
       const v = s.querySelector('video');
       if (!v) return;
-      if (i === n) {
+      if (hWide.matches ? i < 3 : i === n) {
         if (!v.src && v.dataset.hsrc) v.src = v.dataset.hsrc;
         v.play().catch(function () {});
       } else { v.pause(); }
@@ -1125,7 +1165,12 @@
   }
   if (hslides.length) {
     showHero(0);
-    setInterval(() => { hIdx = (hIdx + 1) % hslides.length; showHero(hIdx); }, 6000);
+    // 每支讀自己的 data-dur（毫秒），沒寫就 6000
+    (function next() {
+      setTimeout(() => { hIdx = (hIdx + 1) % hslides.length; showHero(hIdx); next(); },
+        Number(hslides[hIdx].dataset.dur) || 6000);
+    })();
+    if (hWide.addEventListener) hWide.addEventListener('change', () => showHero(hIdx));
   }
   // 導覽列 scroll-spy：滑到哪一區、對應按鈕亮起
   const navLinks = document.querySelectorAll('.topnav a');
